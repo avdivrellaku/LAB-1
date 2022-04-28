@@ -29,7 +29,7 @@ namespace LAB_1.Controllers
             var team = await this.context.Teams.FindAsync(id);
             if (team == null)
             {
-                return BadRequest("Player not found.");
+                return BadRequest("Team not found.");
             }
             return Ok(team);
 
@@ -71,7 +71,7 @@ namespace LAB_1.Controllers
             var team = await this.context.Teams.FindAsync(id);
             if (team == null)
             {
-                return BadRequest("Player not found.");
+                return BadRequest("Team not found.");
             }
 
 
