@@ -18,6 +18,7 @@ namespace LAB_1.Models
 
   
         public virtual DbSet<Players> Players { get; set; } = null!;
+        public virtual DbSet<Team> Teams { get; set; } = null!;
    
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -55,14 +56,45 @@ namespace LAB_1.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-              /*  entity.HasOne(d => d.TeamNavigation)
+                entity.HasOne(d => d.TeamNavigation)
                     .WithMany(p => p.Players)
                     .HasForeignKey(d => d.Team)
                     .HasConstraintName("FK__Players__Team__34C8D9D1");
-              */
-            });
+              
+    });
 
-        
+            
+
+
+
+             modelBuilder.Entity<Team>(entity =>
+            {
+                entity.Property(e => e.Id)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Coach)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Conference)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Division)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Name)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Owner)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+          
+
 
             OnModelCreatingPartial(modelBuilder);
         }
