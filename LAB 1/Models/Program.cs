@@ -1,4 +1,4 @@
-global using LAB_1.Data;
+global using LAB_1.Models;
 global using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<DataContext>(options =>
+builder.Services.AddDbContext<LABCOURSE1Context>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });

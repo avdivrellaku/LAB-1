@@ -8,9 +8,9 @@ namespace LAB_1.Controllers
     public class PlayersController : ControllerBase
     {
       
-        private readonly DataContext context;
+        private readonly Models.LABCOURSE1Context context;
 
-        public PlayersController(DataContext context)
+        public PlayersController(Models.LABCOURSE1Context context)
         {
             this.context = context;
         }
