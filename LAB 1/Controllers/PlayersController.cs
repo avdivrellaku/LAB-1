@@ -15,14 +15,14 @@ namespace LAB_1.Controllers
             this.context = context;
         }
           [HttpGet]
-        public async Task<ActionResult<List<Models.Players>>> Get()
+        public async Task<ActionResult<List<Models.Player>>> Get()
         {
           
             return Ok(await this.context.Players.ToListAsync());
    
         }
         [HttpGet("{id}")]
-        public async Task<ActionResult<List<Models.Players>>> Get(String id)
+        public async Task<ActionResult<List<Models.Player>>> Get(String id)
         {
              var player = await this.context.Players.FindAsync(id);
                 if (player == null)
@@ -33,7 +33,7 @@ namespace LAB_1.Controllers
 
         }
         [HttpPost]
-        public async Task<ActionResult<List<Models.Players>>> AddPlayers(Models.Players player)
+        public async Task<ActionResult<List<Models.Player>>> AddPlayers(Models.Player player)
         {
            this.context.Players.Add(player);
             await this.context.SaveChangesAsync();
@@ -41,7 +41,7 @@ namespace LAB_1.Controllers
 
         }
         [HttpPut]
-        public async Task<ActionResult<List<Models.Players>>> UpdatePlayers(Models.Players playeru)
+        public async Task<ActionResult<List<Models.Player>>> UpdatePlayers(Models.Player playeru)
         {
 
             var dbPlayer = await this.context.Players.FindAsync(playeru.Id);
@@ -62,7 +62,7 @@ namespace LAB_1.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<Models.Players>>> DeletePlayer(String id)
+        public async Task<ActionResult<List<Models.Player>>> DeletePlayer(String id)
         {
             var player = await this.context.Players.FindAsync(id);
             if (player == null)

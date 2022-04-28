@@ -16,12 +16,9 @@ namespace LAB_1.Models
         {
         }
 
-  
-        public virtual DbSet<Players> Players { get; set; } = null!;
-        public virtual DbSet<Team> Teams { get; set; } = null!;
         public virtual DbSet<Game> Games { get; set; } = null!;
-            
-
+        public virtual DbSet<Player> Players { get; set; } = null!;
+        public virtual DbSet<Team> Teams { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -34,9 +31,28 @@ namespace LAB_1.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-         
+            modelBuilder.Entity<Game>(entity =>
+            {
+                entity.ToTable("Game");
 
-            modelBuilder.Entity<Players>(entity =>
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Date).HasColumnType("date");
+
+                entity.Property(e => e.Score)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Team1)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Team2)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Player>(entity =>
             {
                 entity.Property(e => e.Id)
                     .HasMaxLength(50)
@@ -57,19 +73,9 @@ namespace LAB_1.Models
                 entity.Property(e => e.Team)
                     .HasMaxLength(50)
                     .IsUnicode(false);
+            });
 
-                entity.HasOne(d => d.TeamNavigation)
-                    .WithMany(p => p.Players)
-                    .HasForeignKey(d => d.Team)
-                    .HasConstraintName("FK__Players__Team__34C8D9D1");
-              
-    });
-
-            
-
-
-
-             modelBuilder.Entity<Team>(entity =>
+            modelBuilder.Entity<Team>(entity =>
             {
                 entity.Property(e => e.Id)
                     .HasMaxLength(50)
@@ -95,37 +101,6 @@ namespace LAB_1.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
             });
-
-            modelBuilder.Entity<Game>(entity =>
-            {
-                entity.Property(e => e.Id)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Date).HasColumnType("date");
-
-                entity.Property(e => e.Team1)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Team2)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.HasOne(d => d.Team1Navigation)
-                    .WithMany(p => p.GameTeam1Navigations)
-                    .HasForeignKey(d => d.Team1)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Games__Team1__398D8EEE");
-
-                entity.HasOne(d => d.Team2Navigation)
-                    .WithMany(p => p.GameTeam2Navigations)
-                    .HasForeignKey(d => d.Team2)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Games__Team2__3A81B327");
-            });
-
-
 
             OnModelCreatingPartial(modelBuilder);
         }
