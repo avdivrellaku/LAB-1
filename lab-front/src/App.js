@@ -31,7 +31,7 @@ function App() {
       <Container className='d-flex justify-content-around'>
         
         <NavItem className='d-flex justify-content-between'>
-                  <Link className="btn btn-primary my-3" to='/playersHome'>Players</Link>
+                  <Link className="btn btn-primary my-3"onClick={() => {window.location.href="/playersHome"}}>Players</Link>
           </NavItem>
        
           <NavItem className='d-flex justify-content-between'>
