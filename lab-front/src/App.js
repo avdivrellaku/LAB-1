@@ -7,15 +7,8 @@ import { Link } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  Button,
   Navbar,
-  NavbarBrand,
   NavItem,
-  Nav,
   Container
 } from 'reactstrap';
 
@@ -29,16 +22,18 @@ function App() {
         <Router>
         <Navbar style={{marginLeft:380,width:"100%"}} color='light' className='w-50 d-flex flex-direction-row'>
       <Container className='d-flex justify-content-around'>
-        
+      <NavItem className='d-flex justify-content-between'>
+                  <Link to="/" className="btn btn-dark my-3"onClick={() => {window.location.href="/"}}>Home</Link>
+          </NavItem>
         <NavItem className='d-flex justify-content-between'>
-                  <Link className="btn btn-primary my-3"onClick={() => {window.location.href="/playersHome"}}>Players</Link>
+                  <Link to="/" className="btn btn-dark my-3"onClick={() => {window.location.href="/playersHome"}}>Players</Link>
           </NavItem>
        
           <NavItem className='d-flex justify-content-between'>
-                  <Link className="btn btn-primary my-3" to='/add'>Teams</Link>
+                  <Link to="/" className="btn btn-dark my-3">Teams</Link>
           </NavItem>
           <NavItem className='d-flex justify-content-between'>
-                  <Link className="btn btn-primary my-3" to='/add'>Games</Link>
+                  <Link to="/" className="btn btn-dark my-3">Games</Link>
           </NavItem>
 
 
@@ -47,8 +42,8 @@ function App() {
     </Navbar>
          
           <Switch>
-          <Route exact path="/playersHome" component={PlayersHome}/>
-          <Route path="/add" component={AddPlayer}/>
+            <Route exact path="/playersHome" component={PlayersHome}/>
+            <Route path="/add" component={AddPlayer}/>
       
         </Switch>
         </Router>
