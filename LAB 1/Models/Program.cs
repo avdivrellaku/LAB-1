@@ -3,6 +3,8 @@ global using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -13,8 +15,10 @@ builder.Services.AddDbContext<LABCOURSE1Context>(options =>
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddCors();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
+
 
 var app = builder.Build();
 
@@ -25,12 +29,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors(c => c.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+
 app.UseAuthorization();
 
 app.MapControllers();
 
 app.Run();
 
-app.UseCors(c => c.AllowAnyHeader().AllowAnyMethod().WithOrigins());
+
 
 
