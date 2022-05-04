@@ -76,9 +76,9 @@ export const TeamHome = () => {
   return (
 
 
-    <div >
+    <div style={{marginLeft:220,width:"85%"}} className='table-responsive-lg'>
 
-      <Navbar style={{ marginLeft: 380 }} color='dark' className='w-50 d-flex flex-direction-row'>
+      <Navbar style={{ marginLeft: 200}} color='dark' className='w-50 d-flex flex-direction-row'>
         <Container className='d-flex justify-content-around'>
           <NavbarBrand className='text-white my-1'>Teams</NavbarBrand>
           <NavItem>
