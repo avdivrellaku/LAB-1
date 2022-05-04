@@ -79,7 +79,7 @@ export const GamesHome = () => {
       <Container className='d-flex justify-content-around'>
         <NavbarBrand className='text-white my-1'>Games</NavbarBrand>
         <NavItem>
-          <Link className="btn btn-primary my-3" onClick={() => {window.location.href="/addGames"}}>Add a new Player
+          <Link className="btn btn-primary my-3" onClick={() => {window.location.href="/addGames"}}>Add a new Game
           </Link>
         </NavItem>
       </Container>
