@@ -107,7 +107,7 @@ export const PlayersHome = () => {
                  <td>{player.age}</td>
                  <td>{player.position}</td>
                  <td>{player.team}</td>
-                 <td className='d-flex justify-content-around' ><Link to={`/editPlayer/${player.id}`} onClick={() => {window.location.href=`/editPlayer/${player.id}`}} className='btn btn-warning'>Edit</Link>
+                 <td className='d-flex justify-content-around' ><Link to={`/editPlayer/${player.id}/${player.firstName}/${player.lastName}/${player.age}/${player.position}/${player.team}`} onClick={() => {window.location.href=`/editPlayer/${player.id}/${player.firstName}/${player.lastName}/${player.age}/${player.position}/${player.team}`}} className='btn btn-warning'>Edit</Link>
                <button onClick={() => {if(window.confirm(`Are u sure u want to delete " ${player.firstName} ${player.lastName} " ?`))deletePlayers(player.id)}} className='btn btn-danger'>Delete</button></td>
                </tr>
                

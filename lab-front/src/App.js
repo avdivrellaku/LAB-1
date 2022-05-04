@@ -54,7 +54,7 @@ function App() {
           <Route path="/addTeam" component={AddTeam} />
           <Route path="/addGames" component={AddGames} />
           <Route path="/gamesHome" component={GamesHome} />
-          <Route path="/editPlayer/:id" component={EditPlayer} />
+          <Route path="/editPlayer/:id/:firstName/:lastName/:age/:position/:team" component={EditPlayer} />
           <Route path="/editTeam/:id" component={EditTeam} />
 
         </Switch>
