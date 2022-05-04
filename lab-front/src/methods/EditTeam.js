@@ -7,6 +7,12 @@ export const EditTeam = (props) => {
 
     const [teamById, setTeamById] = useState([]);
     const teamId = (props.match.params.id);
+    const teamName = (props.match.params.name);
+    const teamOwner = (props.match.params.owner);
+    const teamCoach = (props.match.params.coach);
+    const teamDivision = (props.match.params.division);
+    const teamConference = (props.match.params.conference);
+    
 
 
     function getTeamById() {
@@ -29,11 +35,11 @@ export const EditTeam = (props) => {
 
     const initialFormData = {
         id: teamId,
-        name: teamById.name,
-        owner: teamById.owner,
-        coach: teamById.age,
-        division: teamById.division,
-        conference: teamById.team
+        name: teamName,
+        owner: teamOwner,
+        coach: teamCoach,
+        division: teamDivision,
+        conference: teamConference
 
     };
 
@@ -97,15 +103,15 @@ export const EditTeam = (props) => {
             <Input name='id' value={formData.id} readOnly style={{ width: "100%" }} type="text" placeholder={teamById.id}></Input>
             <Label></Label>
 
-            <Input name='name' value={formData.name} style={{ width: "100%" }} type="text" placeholder={teamById.name} onChange={handleChange}></Input>
+            <Input name='name' value={formData.name} style={{ width: "100%" }} type="text"  onChange={handleChange}></Input>
             <Label></Label>
-            <Input name='owner' value={formData.owner} style={{ width: "100%" }} type="text" placeholder={teamById.owner} onChange={handleChange}></Input>
+            <Input name='owner' value={formData.owner} style={{ width: "100%" }} type="text"  onChange={handleChange}></Input>
             <Label></Label>
-            <Input name='coach' value={formData.coach} style={{ width: "100%" }} type="text" placeholder={teamById.coach} onChange={handleChange} ></Input>
+            <Input name='coach' value={formData.coach} style={{ width: "100%" }} type="text" onChange={handleChange} ></Input>
             <Label></Label>
-            <Input name='division' value={formData.division} style={{ width: "100%" }} type="text" placeholder={teamById.division} onChange={handleChange}></Input>
+            <Input name='division' value={formData.division} style={{ width: "100%" }} type="text"  onChange={handleChange}></Input>
             <Label></Label>
-            <Input name='conference' value={formData.conference} style={{ width: "100%" }} type="text" placeholder={teamById.conference} onChange={handleChange}></Input>
+            <Input name='conference' value={formData.conference} style={{ width: "100%" }} type="text"  onChange={handleChange}></Input>
             <Label></Label>
 
             <Button onClick={handleSubmit} className='btn btn-success  align-self-center' type="submit">
