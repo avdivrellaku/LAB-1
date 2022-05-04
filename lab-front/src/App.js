@@ -8,6 +8,7 @@ import { AddGames } from './methods/AddGame';
 import { AddPlayer } from './methods/AddPlayer';
 import { AddTeam } from './methods/AddTeam';
 import { Link } from 'react-router-dom';
+import {EditPlayer} from './methods/EditPlayer';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
@@ -52,6 +53,7 @@ function App() {
             <Route path="/addTeam" component={AddTeam}/>
             <Route path="/addGames" component={AddGames}/>
             <Route path="/gamesHome" component={GamesHome}/>
+            <Route path="/editPlayer/:id" component={EditPlayer}/>
       
         </Switch>
         </Router>

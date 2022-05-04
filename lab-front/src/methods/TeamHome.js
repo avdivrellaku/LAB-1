@@ -100,11 +100,11 @@ export const TeamHome = () => {
         <thead>
           <tr>
             <th scope='col'>ID</th>
-            <th scope='col'>First Name</th>
-            <th scope='col'>Last Name</th>
-            <th scope='col'>Age</th>
-            <th scope='col'>Position</th>
-            <th scope='col'>Team</th>
+            <th scope='col'>Name</th>
+            <th scope='col'>Owner</th>
+            <th scope='col'>Coach</th>
+            <th scope='col'>Divison</th>
+            <th scope='col'>Conference</th>
           </tr>
           {teams.map(team => (
             <tr key={team.id}>

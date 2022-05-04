@@ -2,11 +2,6 @@ import React,{useState,useEffect} from 'react';
 import { Link  } from 'react-router-dom';
 import { BrowserRouter as Router,Switch,Route } from 'react-router-dom';
 import {
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  Button,
   Navbar,
   NavbarBrand,
   NavItem,
@@ -51,6 +46,7 @@ export const PlayersHome = () => {
     })
 
   }
+  
 
   function onPlayerDeleted(deletedPlayerId){
     let playerCopy = [...players];
@@ -111,7 +107,7 @@ export const PlayersHome = () => {
                  <td>{player.age}</td>
                  <td>{player.position}</td>
                  <td>{player.team}</td>
-                 <td className='d-flex justify-content-around'><button className='btn btn-warning'>Edit</button>
+                 <td className='d-flex justify-content-around' ><Link to={`/editPlayer/${player.id}`} onClick={() => {window.location.href=`/editPlayer/${player.id}`}} className='btn btn-warning'>Edit</Link>
                <button onClick={() => {if(window.confirm(`Are u sure u want to delete " ${player.firstName} ${player.lastName} " ?`))deletePlayers(player.id)}} className='btn btn-danger'>Delete</button></td>
                </tr>
                
