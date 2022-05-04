@@ -35,7 +35,7 @@ export const GamesHome = () => {
     
   }
   function deleteGames(gamesId){
-    const url = `http://localhost:5164/api/Games/${gamesId}`;
+    const url = `http://localhost:5164/api/Game/${gamesId}`;
     fetch(url,{
       method: 'DELETE'
     })
@@ -79,7 +79,7 @@ export const GamesHome = () => {
       <Container className='d-flex justify-content-around'>
         <NavbarBrand className='text-white my-1'>Games</NavbarBrand>
         <NavItem>
-          <Link className="btn btn-primary my-3" onClick={() => {window.location.href="/addGames"}}>Add a new Game
+          <Link to="/addGames"className="btn btn-primary my-3" onClick={() => {window.location.href="/addGames"}}>Add a new Game
           </Link>
         </NavItem>
       </Container>
