@@ -29,11 +29,11 @@ export const EditTeam = (props) => {
 
     const initialFormData = {
         id: teamId,
-        name: teamId.name,
-        owner: teamId.owner,
-        coach: teamId.age,
-        division: teamId.division,
-        conference: teamId.team
+        name: teamById.name,
+        owner: teamById.owner,
+        coach: teamById.age,
+        division: teamById.division,
+        conference: teamById.team
 
     };
 
