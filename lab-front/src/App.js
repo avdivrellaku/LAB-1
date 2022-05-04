@@ -2,7 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router,Switch,Route } from 'react-router-dom';
 import { PlayersHome } from './methods/PlayersHome';
+import { TeamHome } from './methods/TeamHome';
 import { AddPlayer } from './methods/AddPlayer';
+import { AddTeam } from './methods/AddTeam';
 import { Link } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -30,7 +32,7 @@ function App() {
           </NavItem>
        
           <NavItem className='d-flex justify-content-between'>
-                  <Link to="/" className="btn btn-dark my-3">Teams</Link>
+                  <Link to="/" className="btn btn-dark my-3" onClick={() => {window.location.href="/teamHome"}}>Teams</Link>
           </NavItem>
           <NavItem className='d-flex justify-content-between'>
                   <Link to="/" className="btn btn-dark my-3">Games</Link>
@@ -43,7 +45,9 @@ function App() {
          
           <Switch>
             <Route exact path="/playersHome" component={PlayersHome}/>
-            <Route path="/add" component={AddPlayer}/>
+            <Route exact path="/teamHome" component={TeamHome}/>
+            <Route path="/addPlayer" component={AddPlayer}/>
+            <Route path="/addTeam" component={AddTeam}/>
       
         </Switch>
         </Router>
