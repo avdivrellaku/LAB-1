@@ -62,7 +62,7 @@ namespace LAB_1.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<Models.Player>>> DeletePlayer(String id)
+        public async Task<ActionResult<List<Models.Player>>> DeletePlayer(int id)
         {
             var player = await this.context.Players.FindAsync(id);
             if (player == null)

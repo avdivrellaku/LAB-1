@@ -10,6 +10,7 @@ import { AddTeam } from './methods/AddTeam';
 import { Link } from 'react-router-dom';
 import { EditPlayer } from './methods/EditPlayer';
 import { EditTeam } from './methods/EditTeam';
+import { EditGame } from './methods/EditGame';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
@@ -56,6 +57,7 @@ function App() {
           <Route path="/gamesHome" component={GamesHome} />
           <Route path="/editPlayer/:id/:firstName/:lastName/:age/:position/:team" component={EditPlayer} />
           <Route path="/editTeam/:id/:name/:owner/:coach/:division/:conference" component={EditTeam} />
+          <Route path="/editGame/:id/:team1/:team2/:score/:date" component={EditGame} />
 
         </Switch>
       </Router>

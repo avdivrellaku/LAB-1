@@ -109,8 +109,8 @@ export const GamesHome = () => {
                  <td>{game.team2}</td>
                  <td>{game.score}</td>
                  <td>{game.date}</td>
-                 <td className='d-flex justify-content-around'><button className='btn btn-warning'>Edit</button>
-               <button onClick={() => {if(window.confirm(`Are u sure u want to delete " ${game.team1} ${game.team2} " ?`))deleteGames(game.id)}} className='btn btn-danger'>Delete</button></td>
+                 <td className='d-flex justify-content-around'><Link to={`/editGame/${game.id}/${game.team1}/${game.team2}/${game.score}/${game.date}`} onClick={() => {window.location.href=`/editGame/${game.id}/${game.team1}/${game.team2}/${game.score}/${game.date}`}} className='btn btn-warning'>Edit</Link>
+               <button onClick={() => {if(window.confirm(`Are u sure u want to delete? " ${game.team1} ${game.team2} " ?`))deleteGames(game.id)}} className='btn btn-danger'>Delete</button></td>
                </tr>
                
             ))}

@@ -22,7 +22,7 @@ namespace LAB_1.Controllers
 
         }
         [HttpGet("{id}")]
-        public async Task<ActionResult<List<Models.Game>>> Get(String id)
+        public async Task<ActionResult<List<Models.Game>>> Get(int id)
         {
             var Game = await this.context.Games.FindAsync(id);
             if (Game == null)
@@ -61,7 +61,7 @@ namespace LAB_1.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<Models.Game>>> DeleteGame(String id)
+        public async Task<ActionResult<List<Models.Game>>> DeleteGame(int id)
         {
             var Game = await this.context.Games.FindAsync(id);
             if (Game == null)
