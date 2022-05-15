@@ -99,7 +99,7 @@ export const EditGame = (props) => {
     <Label></Label>
     <Input name='team2' value={formData.team2} style={{width: "100%"}} type="text"  onChange={handleChange}></Input>
     <Label></Label>
-    <Input name='score' value={formData.score} style={{width: "100%"}} type="number"  onChange={handleChange} ></Input>  
+    <Input name='score' value={formData.score} style={{width: "100%"}} type="text"  onChange={handleChange} ></Input>  
     <Label></Label>
     <Input name='date' value={formData.date} style={{width: "100%"}} type="text" onChange={handleChange}></Input>
     <Label></Label>
