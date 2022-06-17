@@ -1,4 +1,5 @@
-import logo from './logo.svg';
+
+
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { PlayersHome } from './methods/PlayersHome';
@@ -11,6 +12,10 @@ import { Link } from 'react-router-dom';
 import { EditPlayer } from './methods/EditPlayer';
 import { EditTeam } from './methods/EditTeam';
 import { EditGame } from './methods/EditGame';
+import { EditUser } from './methods/EditUser';
+import { Register } from './methods/Register';
+import { UsersHome } from './methods/UsersHome';
+import { History } from './methods/History';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
@@ -42,22 +47,36 @@ function App() {
             <NavItem className='d-flex justify-content-between'>
               <Link to="/" className="btn btn-dark my-3" onClick={() => { window.location.href = "/gamesHome" }}>Games</Link>
             </NavItem>
+            <NavItem className='d-flex justify-content-between'>
+              <Link to="/" className="btn btn-dark my-3" onClick={() => { window.location.href = "/UsersHome" }}>Users</Link>
+            </NavItem>
+            <NavItem className='d-flex justify-content-between'>
+            <Link to="/" className="btn btn-dark my-3" onClick={() => { window.location.href = "/History" }}>History</Link>
+            </NavItem>
 
 
           </Container>
 
         </Navbar>
 
+      
+          
+
+
         <Switch>
-          <Route exact path="/playersHome" component={PlayersHome} />
-          <Route exact path="/teamHome" component={TeamHome} />
+          <Route  path="/playersHome" component={PlayersHome} />
+          <Route  path="/teamHome" component={TeamHome} />
           <Route path="/addPlayer" component={AddPlayer} />
           <Route path="/addTeam" component={AddTeam} />
           <Route path="/addGames" component={AddGames} />
           <Route path="/gamesHome" component={GamesHome} />
+          <Route path="/usersHome" component={UsersHome} />
+          <Route path="/Register" component={Register} />
+          <Route path="/History" component={History} />
           <Route path="/editPlayer/:id/:firstName/:lastName/:age/:position/:team" component={EditPlayer} />
           <Route path="/editTeam/:id/:name/:owner/:coach/:division/:conference" component={EditTeam} />
           <Route path="/editGame/:id/:team1/:team2/:score/:date" component={EditGame} />
+          <Route path="/editUser/:id/:firstName/:lastName/:username/:email/:password/:role" component={EditUser} />
 
         </Switch>
       </Router>

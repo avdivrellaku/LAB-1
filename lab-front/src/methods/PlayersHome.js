@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from 'react';
 import { Link  } from 'react-router-dom';
-import { BrowserRouter as Router,Switch,Route } from 'react-router-dom';
 import {
   Navbar,
   NavbarBrand,
@@ -81,13 +80,7 @@ export const PlayersHome = () => {
       </Container>
 
     </Navbar>
-    <Router>
-         
-         <Switch>
-         
-     
-       </Switch>
-       </Router>
+
       
         <table className='table'>
           <thead>

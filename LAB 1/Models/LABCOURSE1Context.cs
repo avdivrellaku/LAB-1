@@ -17,8 +17,10 @@ namespace LAB_1.Models
         }
 
         public virtual DbSet<Game> Games { get; set; } = null!;
+        public virtual DbSet<HistoryPoint> HistoryPoints { get; set; } = null!;
         public virtual DbSet<Player> Players { get; set; } = null!;
         public virtual DbSet<Team> Teams { get; set; } = null!;
+        public virtual DbSet<User> Users { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -50,6 +52,25 @@ namespace LAB_1.Models
                 entity.Property(e => e.Team2)
                     .HasMaxLength(50)
                     .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<HistoryPoint>(entity =>
+            {
+                entity.Property(e => e.Id)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("id");
+
+                entity.Property(e => e.FullName)
+                    .HasMaxLength(150)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ImageName)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("imageName");
+
+                entity.Property(e => e.Nr).HasColumnName("nr");
             });
 
             modelBuilder.Entity<Player>(entity =>
@@ -98,6 +119,36 @@ namespace LAB_1.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.Owner)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.ToTable("User");
+
+                entity.Property(e => e.Email)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FirstName)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.LastName)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Password)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Role)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("(user_name())");
+
+                entity.Property(e => e.Username)
                     .HasMaxLength(50)
                     .IsUnicode(false);
             });
