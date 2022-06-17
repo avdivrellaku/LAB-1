@@ -8,14 +8,17 @@ import { GamesHome } from './methods/GameHome';
 import { AddGames } from './methods/AddGame';
 import { AddPlayer } from './methods/AddPlayer';
 import { AddTeam } from './methods/AddTeam';
+import { AddArena } from './methods/AddArena';
 import { Link } from 'react-router-dom';
 import { EditPlayer } from './methods/EditPlayer';
 import { EditTeam } from './methods/EditTeam';
 import { EditGame } from './methods/EditGame';
 import { EditUser } from './methods/EditUser';
+import { EditArena } from './methods/EditArena';
 import { Register } from './methods/Register';
 import { UsersHome } from './methods/UsersHome';
 import { History } from './methods/History';
+import { Arenas } from './methods/Arenas';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
@@ -53,6 +56,9 @@ function App() {
             <NavItem className='d-flex justify-content-between'>
             <Link to="/" className="btn btn-dark my-3" onClick={() => { window.location.href = "/History" }}>History</Link>
             </NavItem>
+            <NavItem className='d-flex justify-content-between'>
+            <Link to="/" className="btn btn-dark my-3" onClick={() => { window.location.href = "/Arenas" }}>Arenas</Link>
+            </NavItem>
 
 
           </Container>
@@ -73,10 +79,13 @@ function App() {
           <Route path="/usersHome" component={UsersHome} />
           <Route path="/Register" component={Register} />
           <Route path="/History" component={History} />
+          <Route path="/Arenas" component={Arenas} />
+          <Route path="/AddArena" component={AddArena} />
           <Route path="/editPlayer/:id/:firstName/:lastName/:age/:position/:team" component={EditPlayer} />
           <Route path="/editTeam/:id/:name/:owner/:coach/:division/:conference" component={EditTeam} />
           <Route path="/editGame/:id/:team1/:team2/:score/:date" component={EditGame} />
           <Route path="/editUser/:id/:firstName/:lastName/:username/:email/:password/:role" component={EditUser} />
+          <Route path="/editArena/:id/:name/:location/:team/:capacity/:imageName" component={EditArena} />
 
         </Switch>
       </Router>

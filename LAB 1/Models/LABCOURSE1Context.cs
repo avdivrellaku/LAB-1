@@ -16,6 +16,7 @@ namespace LAB_1.Models
         {
         }
 
+        public virtual DbSet<Arena> Arenas { get; set; } = null!;
         public virtual DbSet<Game> Games { get; set; } = null!;
         public virtual DbSet<HistoryPoint> HistoryPoints { get; set; } = null!;
         public virtual DbSet<Player> Players { get; set; } = null!;
@@ -33,6 +34,26 @@ namespace LAB_1.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Arena>(entity =>
+            {
+                entity.Property(e => e.ImageName)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("imageName");
+
+                entity.Property(e => e.Location)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Name)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Team)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<Game>(entity =>
             {
                 entity.ToTable("Game");
