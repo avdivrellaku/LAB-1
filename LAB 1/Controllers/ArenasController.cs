@@ -6,8 +6,8 @@ namespace LAB_1.Controllers
     [ApiController]
     public class ArenasController : Controller
     {
-        private readonly Models.LABCOURSE1Context context;
-        public ArenasController(Models.LABCOURSE1Context context)
+        private readonly LABCOURSE1Context context;
+        public ArenasController(LABCOURSE1Context context)
         {
             this.context = context;
         }
@@ -15,7 +15,7 @@ namespace LAB_1.Controllers
 
         [HttpGet]
 
-        public async Task<ActionResult<List<Models.Arena>>> Get()
+        public async Task<ActionResult<List<Arena>>> Get()
         {
 
             return Ok(await this.context.Arenas.ToListAsync());
@@ -23,7 +23,7 @@ namespace LAB_1.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<List<Models.Arena>>> Get(int id)
+        public async Task<ActionResult<List<Arena>>> Get(int id)
         {
             var arena = await this.context.Arenas.FindAsync(id);
             if (arena == null)
@@ -34,7 +34,7 @@ namespace LAB_1.Controllers
 
         }
         [HttpPost]
-        public async Task<ActionResult<List<Models.Arena>>> AddArenas(Models.Arena arena)
+        public async Task<ActionResult<List<Arena>>> AddArenas(Arena arena)
         {
             this.context.Arenas.Add(arena);
             await this.context.SaveChangesAsync();
@@ -42,7 +42,7 @@ namespace LAB_1.Controllers
 
         }
         [HttpPut]
-        public async Task<ActionResult<List<Models.Arena>>> UpdateArenas(Models.Arena arenaa)
+        public async Task<ActionResult<List<Arena>>> UpdateArenas(Arena arenaa)
         {
 
             var dbArena = await this.context.Arenas.FindAsync(arenaa.Id);
@@ -64,7 +64,7 @@ namespace LAB_1.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<Models.Arena>>> DeleteArena(int id)
+        public async Task<ActionResult<List<Arena>>> DeleteArena(int id)
         {
             var arena = await this.context.Arenas.FindAsync(id);
             if (arena == null)

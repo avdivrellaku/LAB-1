@@ -6,15 +6,15 @@ namespace LAB_1.Controllers
     [ApiController]
     public class TeamController : Controller
     {
-        private readonly Models.LABCOURSE1Context context;
+        private readonly LABCOURSE1Context context;
 
-        public TeamController(Models.LABCOURSE1Context context)
+        public TeamController(LABCOURSE1Context context)
         {
             this.context = context;
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Models.Team>>> Get()
+        public async Task<ActionResult<List<Team>>> Get()
         {
 
             return Ok(await this.context.Teams.ToListAsync());
@@ -24,7 +24,7 @@ namespace LAB_1.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<List<Models.Team>>> Get(String id)
+        public async Task<ActionResult<List<Team>>> Get(String id)
         {
             var team = await this.context.Teams.FindAsync(id);
             if (team == null)
@@ -36,7 +36,7 @@ namespace LAB_1.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<List<Models.Team>>> AddTeams(Models.Team team)
+        public async Task<ActionResult<List<Team>>> AddTeams(Team team)
         {
             this.context.Teams.Add(team);
             await this.context.SaveChangesAsync();
@@ -45,7 +45,7 @@ namespace LAB_1.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult<List<Models.Team>>> UpdateTeams(Models.Team team)
+        public async Task<ActionResult<List<Team>>> UpdateTeams(Team team)
         {
 
             var dbTeam = await this.context.Teams.FindAsync(team.Id);
@@ -66,7 +66,7 @@ namespace LAB_1.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<Models.Team>>> DeleteTeam(String id)
+        public async Task<ActionResult<List<Team>>> DeleteTeam(String id)
         {
             var team = await this.context.Teams.FindAsync(id);
             if (team == null)

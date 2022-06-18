@@ -6,8 +6,8 @@ namespace LAB_1.Controllers
     [ApiController]
     public class HistoryPointsController : Controller
     {
-        private readonly Models.LABCOURSE1Context context;
-        public HistoryPointsController(Models.LABCOURSE1Context context)
+        private readonly LABCOURSE1Context context;
+        public HistoryPointsController(LABCOURSE1Context context)
         {
             this.context = context;
         }
@@ -15,7 +15,7 @@ namespace LAB_1.Controllers
 
         [HttpGet]
       
-        public async Task<ActionResult<List<Models.HistoryPoint>>> Get()
+        public async Task<ActionResult<List<HistoryPoint>>> Get()
         {
 
             return Ok(await this.context.HistoryPoints.ToListAsync());

@@ -8,21 +8,21 @@ namespace LAB_1.Controllers
     public class PlayersController : ControllerBase
     {
       
-        private readonly Models.LABCOURSE1Context context;
+        private readonly LABCOURSE1Context context;
 
-        public PlayersController(Models.LABCOURSE1Context context)
+        public PlayersController(LABCOURSE1Context context)
         {
             this.context = context;
         }
           [HttpGet]
-        public async Task<ActionResult<List<Models.Player>>> Get()
+        public async Task<ActionResult<List<Player>>> Get()
         {
           
             return Ok(await this.context.Players.ToListAsync());
    
         }
         [HttpGet("{id}")]
-        public async Task<ActionResult<List<Models.Player>>> Get(String id)
+        public async Task<ActionResult<List<Player>>> Get(String id)
         {
              var player = await this.context.Players.FindAsync(id);
                 if (player == null)
@@ -33,7 +33,7 @@ namespace LAB_1.Controllers
 
         }
         [HttpPost]
-        public async Task<ActionResult<List<Models.Player>>> AddPlayers(Models.Player player)
+        public async Task<ActionResult<List<Player>>> AddPlayers(Player player)
         {
            this.context.Players.Add(player);
             await this.context.SaveChangesAsync();
@@ -41,7 +41,7 @@ namespace LAB_1.Controllers
 
         }
         [HttpPut]
-        public async Task<ActionResult<List<Models.Player>>> UpdatePlayers(Models.Player playeru)
+        public async Task<ActionResult<List<Player>>> UpdatePlayers(Player playeru)
         {
 
             var dbPlayer = await this.context.Players.FindAsync(playeru.Id);
@@ -62,7 +62,7 @@ namespace LAB_1.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<Models.Player>>> DeletePlayer(String id)
+        public async Task<ActionResult<List<Player>>> DeletePlayer(String id)
         {
             var player = await this.context.Players.FindAsync(id);
             if (player == null)

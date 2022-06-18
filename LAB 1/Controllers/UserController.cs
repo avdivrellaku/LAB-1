@@ -6,32 +6,49 @@ namespace LAB_1.Controllers
     [ApiController]
     public class UserController : Controller
     {
-        private readonly Models.LABCOURSE1Context context;
+        private readonly LABCOURSE1Context context;
 
-        public UserController(Models.LABCOURSE1Context context)
+        public UserController(LABCOURSE1Context context)
         {
             this.context = context;
         }
         [HttpGet]
-        public async Task<ActionResult<List<Models.User>>> Get()
+        public async Task<ActionResult<List<User>>> Get()
         {
 
             return Ok(await this.context.Users.ToListAsync());
 
         }
+        [HttpPost]
+        [Route("Login")]
+        public async Task<IActionResult> userLogin([FromBody] User user)
+        {
+
+
+
+            var dbuser = this.context.Users.Where(u => u.Username == user.Username && u.Password == user.Password).FirstOrDefault();
+
+            if (dbuser == null)
+            {
+                return BadRequest("User or password incorrect");
+            }
+
+            return Ok(dbuser.Username +  " " + dbuser.Password);
+
+        }
         [HttpGet("{id}")]
-        public async Task<ActionResult<List<Models.User>>> Get(int id)
+        public async Task<ActionResult<List<User>>> Get(int id)
         {
             var user = await this.context.Users.FindAsync(id);
             if (user == null)
             {
-                return BadRequest("Player not found.");
+                return BadRequest("User not found.");
             }
             return Ok(user);
 
         }
         [HttpPost]
-        public async Task<ActionResult<List<Models.User>>>AddUsers(Models.User user)
+        public async Task<ActionResult<List<User>>>AddUsers(User user)
         {
             this.context.Users.Add(user);
             await this.context.SaveChangesAsync();
@@ -39,7 +56,7 @@ namespace LAB_1.Controllers
 
         }
         [HttpPut]
-        public async Task<ActionResult<List<Models.User>>> UpdateUsers(Models.User userup)
+        public async Task<ActionResult<List<User>>> UpdateUsers(User userup)
         {
 
             var dbUser = await this.context.Users.FindAsync(userup.Id);
@@ -61,7 +78,7 @@ namespace LAB_1.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<Models.Player>>> DeleteUser(int id)
+        public async Task<ActionResult<List<Player>>> DeleteUser(int id)
         {
             var user = await this.context.Users.FindAsync(id);
             if (user == null)
