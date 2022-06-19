@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace LAB_1.Controllers
 {
@@ -21,21 +23,27 @@ namespace LAB_1.Controllers
         }
         [HttpPost]
         [Route("Login")]
-        public async Task<IActionResult> userLogin([FromBody] User user)
+        public async Task<IActionResult> userLogin([FromBody] Login login)
         {
 
+                var sha = SHA256.Create();
+                var asByteArray = Encoding.Default.GetBytes(login.Password);
+                var hashedPassword = sha.ComputeHash(asByteArray);
+                login.Password = Convert.ToBase64String(hashedPassword);
 
+        
+            var dbuser = this.context.Users.Where(u => u.Username == login.Username && u.Password == login.Password).FirstOrDefault();
 
-            var dbuser = this.context.Users.Where(u => u.Username == user.Username && u.Password == user.Password).FirstOrDefault();
+            if (dbuser == null){
 
-            if (dbuser == null)
-            {
-                return BadRequest("User or password incorrect");
+                return BadRequest();
             }
 
-            return Ok(dbuser.Username +  " " + dbuser.Password);
+
+            return Ok("success");
 
         }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<List<User>>> Get(int id)
         {
@@ -50,6 +58,19 @@ namespace LAB_1.Controllers
         [HttpPost]
         public async Task<ActionResult<List<User>>>AddUsers(User user)
         {
+
+            var dbUser = this.context.Users.Where(u => u.Email == user.Email).FirstOrDefault();
+
+            if (dbUser != null)
+            {
+                return BadRequest("User ekziston already");
+            }
+
+            var sha = SHA256.Create();
+            var asByteArray = Encoding.Default.GetBytes(user.Password);
+            var hashedPassword = sha.ComputeHash(asByteArray);
+            user.Password = Convert.ToBase64String(hashedPassword);
+
             this.context.Users.Add(user);
             await this.context.SaveChangesAsync();
             return Ok(await this.context.Users.ToListAsync());

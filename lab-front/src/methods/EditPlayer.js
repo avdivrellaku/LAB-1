@@ -5,14 +5,9 @@ import {Form,Label,Input,Button} from 'reactstrap';
 
 export const EditPlayer = (props) => {
   
-  const [playerById, setPlayerById] = useState([]);
+  const [formData, setFormData] = useState([]);
   const playerId = (props.match.params.id);
-  const playerFirstName = (props.match.params.firstName);
-  const playerLastName = (props.match.params.lastName);
-  const playerAge = (props.match.params.age);
-  const playerPosition = (props.match.params.position);
-  const playerTeam = (props.match.params.team);
-  
+
 
   function getPlayerById(){
     const url = `http://localhost:5164/api/Players/${playerId}`;
@@ -22,7 +17,7 @@ export const EditPlayer = (props) => {
     .then(response => response.json())
     .then(playersFromServer =>{
       console.log(playersFromServer);
-      setPlayerById(playersFromServer);
+      setFormData(playersFromServer);
     })
     .catch(error =>{
       console.log(error);
@@ -32,16 +27,6 @@ export const EditPlayer = (props) => {
   useEffect(getPlayerById,[]);
 
 
-  const initialFormData = {
-    id: playerId,
-    firstName:playerFirstName,
-    lastName:playerLastName,
-    age:playerAge,
-    position:playerPosition,
-    team:playerTeam
-  };
-
-  const [formData, setFormData] = useState(initialFormData);
 
 
   const handleChange = (e => {
@@ -96,7 +81,7 @@ export const EditPlayer = (props) => {
     <Form  className='d-flex flex-column' style={{marginLeft:500,width:"30%"}}>
     
 
-    <Input name='id' value={formData.id} readOnly style={{width: "100%"}} type="text" placeholder={playerById.id}></Input> 
+    <Input name='id' value={formData.id} readOnly style={{width: "100%"}} type="text"></Input> 
     <Label></Label>
 
     <Input name='firstName' value={formData.firstName} style={{width: "100%"}} type="text"   onChange={handleChange}></Input>

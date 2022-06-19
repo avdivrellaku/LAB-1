@@ -102,7 +102,7 @@ export const UsersHome = () => {
                  <td>{user.email}</td>
                  <td>{user.password}</td>
                  <td>{user.role}</td>
-                 <td className='d-flex justify-content-around'><Link to={`/editUser/${user.id}/${user.firstName}/${user.lastName}/${user.username}/${user.email}/${user.password}/${user.role}`} onClick={() => {window.location.href=`/editUser/${user.id}/${user.firstName}/${user.lastName}/${user.username}/${user.email}/${user.password}/${user.role}`}} className='btn btn-warning'>Edit</Link>
+                 <td className='d-flex justify-content-around'><Link to={`/editUser/${user.id}`} onClick={() => {window.location.href=`/editUser/${user.id}`}} className='btn btn-warning'>Edit</Link>
                <button onClick={() => {if(window.confirm(`Are u sure u want to delete " ${user.firstName} ${user.lastName} " ?`))deleteUsers(user.id)}} className='btn btn-danger'>Delete</button></td>
                </tr>
                

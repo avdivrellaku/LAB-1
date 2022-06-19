@@ -11,5 +11,7 @@ namespace LAB_1.Models
         public string? Team { get; set; }
         public int? Capacity { get; set; }
         public string? ImageName { get; set; }
+
+        public virtual Team? TeamNavigation { get; set; }
     }
 }

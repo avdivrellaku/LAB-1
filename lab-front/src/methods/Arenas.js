@@ -83,15 +83,15 @@ export const Arenas = () => {
       <div className='d-flex flex-row flex-wrap' style={{ marginLeft: 50, width: "100%" }}>
         {arenas.map(arena => (
           <div className="card" style={{ width: "300px" }}>
-            <img src={`images/${arena.imageName}`} alt="Card image cap" />
+            <img style={{height:"100%",width:"100%"}} src={`images/${arena.imageName}`} alt="Card image cap" />
             <div className="card-header">
               {arena.name}
             </div>
             <ul className="list-group list-group-flush">
-              <li className="list-group-item">{arena.id}</li>
-              <li className="list-group-item">{arena.location}</li>
-              <li className="list-group-item">{arena.team}</li>
-              <li className="list-group-item">{arena.capacity}</li>
+            
+              <li className="list-group-item">Location: {arena.location}</li>
+              <li className="list-group-item">Team: {arena.team}</li>
+              <li className="list-group-item">Capacity: {arena.capacity}</li>
               <li className="list-group-item d-flex justify-content-around"><Link to={`/editArena/${arena.id}/${arena.name}/${arena.location}/${arena.team}/${arena.capacity}/${arena.imageName}`} onClick={() => { window.location.href = `/editArena/${arena.id}/${arena.name}/${arena.location}/${arena.team}/${arena.capacity}/${arena.imageName}` }} className='btn btn-warning'>Edit</Link>
                 <button onClick={() => { if (window.confirm(`Are u sure u want to delete " ${arena.name} ${arena.location} ${arena.team} " ?`)) deleteArena(arena.id) }} className='btn btn-danger'>Delete</button>
               </li>

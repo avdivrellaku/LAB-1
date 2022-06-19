@@ -81,10 +81,10 @@ function App() {
           <Route path="/History" component={History} />
           <Route path="/Arenas" component={Arenas} />
           <Route path="/AddArena" component={AddArena} />
-          <Route path="/editPlayer/:id/:firstName/:lastName/:age/:position/:team" component={EditPlayer} />
-          <Route path="/editTeam/:id/:name/:owner/:coach/:division/:conference" component={EditTeam} />
+          <Route path="/editPlayer/:id" component={EditPlayer} />
+          <Route path="/editTeam/:id" component={EditTeam} />
           <Route path="/editGame/:id/:team1/:team2/:score/:date" component={EditGame} />
-          <Route path="/editUser/:id/:firstName/:lastName/:username/:email/:password/:role" component={EditUser} />
+          <Route path="/editUser/:id" component={EditUser} />
           <Route path="/editArena/:id/:name/:location/:team/:capacity/:imageName" component={EditArena} />
 
         </Switch>

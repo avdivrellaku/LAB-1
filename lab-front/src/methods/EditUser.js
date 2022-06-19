@@ -5,15 +5,9 @@ import {Form,Label,Input,Button} from 'reactstrap';
 
 export const EditUser = (props) => {
   
-  const [userById, setUserById] = useState([]);
+  const [formData, setFormData] = useState([]);
   const userId = (props.match.params.id);
-  const userFirstName = (props.match.params.firstName);
-  const userLastName = (props.match.params.lastName);
-  const userUsername = (props.match.params.username);
-  const userEmail = (props.match.params.email);
-  const userPassword = (props.match.params.password);
-  const userRole = (props.match.params.role);
-  
+
 
   function getUserById(){
     const url = `http://localhost:5164/api/User/${userId}`;
@@ -23,7 +17,7 @@ export const EditUser = (props) => {
     .then(response => response.json())
     .then(usersFromServer =>{
       console.log(usersFromServer);
-      setUserById(usersFromServer);
+      setFormData(usersFromServer);
     })
     .catch(error =>{
       console.log(error);
@@ -33,17 +27,6 @@ export const EditUser = (props) => {
   useEffect(getUserById,[]);
 
 
-  const initialFormData = {
-    id: userId,
-    firstName:userFirstName,
-    lastName:userLastName,
-    username:userUsername,
-    email:userEmail,
-    password:userPassword,
-    role:userRole
-  };
-
-  const [formData, setFormData] = useState(initialFormData);
 
 
   const handleChange = (e => {
@@ -99,7 +82,7 @@ export const EditUser = (props) => {
     <Form  className='d-flex flex-column' style={{marginLeft:500,width:"30%"}}>
     
 
-    <Input name='id' value={formData.id} readOnly style={{width: "100%"}} type="text" placeholder={userById.id}></Input> 
+    <Input name='id' value={formData.id} readOnly style={{width: "100%"}} type="text" ></Input> 
     <Label></Label>
 
     <Input name='firstName' value={formData.firstName} style={{width: "100%"}} type="int"   onChange={handleChange}></Input>
