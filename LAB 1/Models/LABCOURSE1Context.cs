@@ -89,6 +89,10 @@ namespace LAB_1.Models
                     .IsUnicode(false)
                     .HasColumnName("id");
 
+                entity.Property(e => e.Assists)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.FullName)
                     .HasMaxLength(50)
                     .IsUnicode(false);
@@ -103,10 +107,6 @@ namespace LAB_1.Models
                     .HasColumnName("imageName");
 
                 entity.Property(e => e.Nr).HasColumnName("nr");
-
-                entity.Property(e => e.Points)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<HistoryPoint>(entity =>

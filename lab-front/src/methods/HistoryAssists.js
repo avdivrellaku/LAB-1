@@ -20,7 +20,7 @@ import { Arenas } from './Arenas';
 
 export const HistoryAssists = () => {
 
-  const [HistoryAssists, setHistoryAssists] = useState([]);
+  const [players, setHistoryAssists] = useState([]);
   function getHistoryAssists() {
     const url = 'http://localhost:5164/api/HistoryAssists';
     fetch(url, {
@@ -57,7 +57,7 @@ export const HistoryAssists = () => {
   }
 
   function onHistoryAssistsDeleted(deletedAssistsId) {
-    let assistsCopy = [...HistoryAssists];
+    let assistsCopy = [...players];
 
     const index = assistsCopy.findIndex((assistsCopyassists, currentIndex) => {
       if (assistsCopyassists.id === deletedAssistsId) {
@@ -91,20 +91,20 @@ export const HistoryAssists = () => {
       <h2 style={{paddingLeft:60}} >All time Assists</h2>
   
   <div className='d-flex justify-content-around flex-wrap'  style={{marginLeft:5, width: "100%"}}>
-     {HistoryAssists.map(assists =>(
+     {players.map(player =>(
          
-      <div key={assists.id} className="card" style={{width: "300px", margin:"10px"}}>      
-         <img src={`images/${assists.imageName}`} style={{height:"100%",width:"100%",padding:2}} />
+      <div key={player.id} className="card" style={{width: "300px", margin:"10px"}}>      
+         <img src={`images/${player.imageName}`} style={{height:"100%",width:"100%",padding:2}} />
          <div className="card-header">
-            {assists.fullName}
+            {player.fullName}
          </div>
             <ul className="list-group list-group-flush">
-                <li className="list-group-item">Nr: {assists.nr} </li>
-                <li className="list-group-item">Points: {assists.points} </li>
-                <li className="list-group-item">Games Played:{assists.gamesPlayed} </li>
-                <li className="list-group-item">Turnovers:{assists.turnovers} </li>
-                <li className="list-group-item d-flex justify-content-around"><Link to={`/editHistoryAssists/${assists.id}/${assists.nr}/${assists.fullName}/${assists.points}/${assists.gamesPlayed}/${assists.turnovers}/${assists.imageName}`} onClick={() => { window.location.href = `/editHistoryAssists/${assists.id}/${assists.nr}/${assists.fullName}/${assists.points}/${assists.gamesPlayed}/${assists.turnovers}/${assists.imageName}` }} className='btn btn-warning'>Edit</Link> 
-                    <button onClick={() => { if (window.confirm(`Are u sure u want to delete " ${assists.fullName} " ?`)) deleteHistoryAssists(assists.id) }} className='btn btn-danger'>Delete</button>
+                <li className="list-group-item">Nr: {player.nr} </li>
+                <li className="list-group-item">Assists: {player.assists} </li>
+                <li className="list-group-item">Games Played:{player.gamesPlayed} </li>
+                <li className="list-group-item">Turnovers:{player.turnovers} </li>
+                <li className="list-group-item d-flex justify-content-around"><Link to={`/editHistoryAssists/${player.id}}`} onClick={() => { window.location.href = `/editHistoryAssists/${player.id}` }} className='btn btn-warning'>Edit</Link> 
+                    <button onClick={() => { if (window.confirm(`Are u sure u want to delete " ${player.fullName} " ?`)) deleteHistoryAssists(player.id) }} className='btn btn-danger'>Delete</button>
                 </li>
             </ul>       
           </div>

@@ -19,7 +19,7 @@ export const AddHistoryAssists = () => {
       id:FormData.id,
       nr:FormData.nr,
       fullName:FormData.fullName,
-      points:FormData.points,
+      assists:FormData.assists,
       gamesPlayed:FormData.gamesPlayed,
       turnovers:FormData.turnovers,
       imageName:FormData.imageName
@@ -65,7 +65,7 @@ export const AddHistoryAssists = () => {
        <Label></Label>
        <Input name='fullName' style={{width: "100%"}} type="text" placeholder='Full Name' onChange={handleChange}></Input>
        <Label></Label>
-       <Input name='points' style={{width: "100%"}} type="number" placeholder='Assists' onChange={handleChange}></Input>  
+       <Input name='assists' style={{width: "100%"}} type="number" placeholder='Assists' onChange={handleChange}></Input>  
        <Label></Label>
        <Input name='gamesPlayed' style={{width: "100%"}} type="number" placeholder='Games Played' onChange={handleChange}></Input>
        <Label></Label>

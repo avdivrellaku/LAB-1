@@ -55,7 +55,7 @@ namespace LAB_1.Controllers
             }
             dbHistoryAssists.Nr = historyassists.Nr;
             dbHistoryAssists.FullName = historyassists.FullName;
-            dbHistoryAssists.Points = historyassists.Points;
+            dbHistoryAssists.Assists = historyassists.Assists;
             dbHistoryAssists.GamesPlayed = historyassists.GamesPlayed;
             dbHistoryAssists.Turnovers = historyassists.Turnovers;
             dbHistoryAssists.ImageName = historyassists.ImageName;

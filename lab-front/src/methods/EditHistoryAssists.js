@@ -41,7 +41,7 @@ export const EditHistoryAssists = (props) => {
             id:formData.id,
             nr:formData.nr,
             fullName:formData.fullName,
-            points:formData.points,
+            assists:formData.assists,
             gamesPlayed:formData.gamesPlayed,
             turnovers:formData.turnovers,
             imageName:formData.imageName
@@ -86,7 +86,7 @@ export const EditHistoryAssists = (props) => {
             <Label></Label>
             <Input name='fullName' value={formData.fullName} style={{ width: "100%" }} type="text"  onChange={handleChange}></Input>
             <Label></Label>
-            <Input name='points' value={formData.points} style={{ width: "100%" }} type="number" onChange={handleChange} ></Input>
+            <Input name='assists' value={formData.assists} style={{ width: "100%" }} type="number" onChange={handleChange} ></Input>
             <Label></Label>
             <Input name='gamesPlayed' value={formData.gamesPlayed} style={{ width: "100%" }} type="number"  onChange={handleChange}></Input>
             <Label></Label>
