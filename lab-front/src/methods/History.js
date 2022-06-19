@@ -28,25 +28,43 @@ export const History = () => {
 
     
   }
-  useEffect(getPlayers,[]); 
-  
-//   function deletePlayers(playerId){
-//     const url = `http://localhost:5164/api/Players/${playerId}`;
-//     fetch(url,{
-//       method: 'DELETE'
-//     })
-//     .then(response => response.json())
-//     .then(responseFromServer => {
-//       console.log(responseFromServer);
-//       onPlayerDeleted(playerId);
+  function deletePlayers(playerId){
+    const url = `http://localhost:5164/api/HistoryPoints/${playerId}`;
+    fetch(url,{
+      method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(responseFromServer => {
+      console.log(responseFromServer);
+      onPlayerDeleted(playerId);
     
-//     })
-//     .catch((error)=>{
-//       console.log(error);
-//       alert(error); 
-//     })
+    })
+    .catch((error)=>{
+      console.log(error);
+      alert(error); 
+    })
 
-//   }
+  }
+  
+
+  function onPlayerDeleted(deletedPlayerId){
+    let playerCopy = [...players];
+
+    const index = playerCopy.findIndex((playerCopyplayer,currentIndex) => {
+      if (playerCopyplayer.id === deletedPlayerId){
+        return true;
+      }
+    });
+    if (index !== -1){
+      playerCopy.splice(index,1);
+    }
+
+    setPlayers(playerCopy);
+
+   
+  }
+  useEffect(getPlayers,[]); 
+ 
  
 
   return (
@@ -59,7 +77,7 @@ export const History = () => {
        
     
         {players.map(player =>(
-            <div className='d-flex flex-row card' style={{marginLeft:5,height:"170px",width:"35%"}}>
+            <div key={player.id} className='d-flex flex-row card' style={{marginLeft:5,height:"50%",width:"40%"}}>
     
         <img src={`images/${player.imageName}`} className='card' style={{height:"100%",width:"60%",padding:2}} />
     <div style={{marginLeft:5,width:"140px"}} className='d-flex flex-column justify-content-evenly'>
@@ -67,8 +85,13 @@ export const History = () => {
         <h4>{player.fullName}</h4>
             <h5>{player.points} points</h5>
             <h6>{player.gamesPlayed} games played</h6>
+            <div className='d-flex flex-row'>
+            <button  className='btn btn-warning'>Edit</button>
+            <button onClick={() => { if (window.confirm(`Are u sure u want to delete " ${player.fullName} " ?`)) deletePlayers(player.id) }} className='btn btn-danger'>Delete</button>
+            </div>
         </div>
-        
+              
+
         </div>
         ))}
       

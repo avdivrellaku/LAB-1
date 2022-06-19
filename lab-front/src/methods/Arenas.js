@@ -93,7 +93,7 @@ export const Arenas = () => {
               <li className="list-group-item">Team: {arena.team}</li>
               <li className="list-group-item">Capacity: {arena.capacity}</li>
               <li className="list-group-item d-flex justify-content-around"><Link to={`/editArena/${arena.id}/${arena.name}/${arena.location}/${arena.team}/${arena.capacity}/${arena.imageName}`} onClick={() => { window.location.href = `/editArena/${arena.id}/${arena.name}/${arena.location}/${arena.team}/${arena.capacity}/${arena.imageName}` }} className='btn btn-warning'>Edit</Link>
-                <button onClick={() => { if (window.confirm(`Are u sure u want to delete " ${arena.name} ${arena.location} ${arena.team} " ?`)) deleteArena(arena.id) }} className='btn btn-danger'>Delete</button>
+                <button onClick={() => { if (window.confirm(`Are u sure u want to delete " ${arena.name}" ?`)) deleteArena(arena.id) }} className='btn btn-danger'>Delete</button>
               </li>
             </ul>
           </div>

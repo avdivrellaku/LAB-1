@@ -21,6 +21,21 @@ namespace LAB_1.Controllers
             return Ok(await this.context.HistoryPoints.ToListAsync());
 
         }
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<List<HistoryPoint>>> DeletePlayer(String id)
+        {
+            var player = await this.context.HistoryPoints.FindAsync(id);
+            if (player == null)
+            {
+                return BadRequest("Player not found.");
+            }
+
+
+            this.context.HistoryPoints.Remove(player);
+            await this.context.SaveChangesAsync();
+            return Ok(await this.context.SaveChangesAsync());
+
+        }
     }
 
 
