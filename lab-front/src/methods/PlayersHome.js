@@ -68,7 +68,9 @@ export const PlayersHome = () => {
   return (
     
     
+    
     <div style={{marginLeft:300,width:"65%"}} className='table-responsive-lg'>
+      
       
     <Navbar style={{marginLeft:187}} color='dark' className='w-50 d-flex flex-direction-row'>
       <Container className='d-flex justify-content-around'>
