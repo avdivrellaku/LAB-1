@@ -20,7 +20,8 @@ import { Register } from './methods/Register';
 import { UsersHome } from './methods/UsersHome';
 import { History } from './methods/History';
 import { Arenas } from './methods/Arenas';
-
+import {AddHistoryPoints} from './methods/AddHistoryPoints';
+import {EditHistoryPoints} from './methods/EditHistoryPoints';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
@@ -28,6 +29,7 @@ import {
   NavItem,
   Container
 } from 'reactstrap';
+
 
 
 
@@ -56,11 +58,13 @@ function App() {
           <Route path="/History" component={History} />
           <Route path="/Arenas" component={Arenas} />
           <Route path="/AddArena" component={AddArena} />
+          <Route path="/addHistoryPoints" component={AddHistoryPoints} />
           <Route path="/editPlayer/:id" component={EditPlayer} />
+          <Route path="/editHistoryPoints/:id" component={EditHistoryPoints} />
           <Route path="/editTeam/:id" component={EditTeam} />
-          <Route path="/editGame/:id/:team1/:team2/:score/:date" component={EditGame} />
+          <Route path="/editGame/:id" component={EditGame} />
           <Route path="/editUser/:id" component={EditUser} />
-          <Route path="/editArena/:id/:name/:location/:team/:capacity/:imageName" component={EditArena} />
+          <Route path="/editArena/:id" component={EditArena} />
 
        
       </Router>

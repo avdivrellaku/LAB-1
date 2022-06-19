@@ -70,6 +70,16 @@ export const History = () => {
   return (
     
       <div style={{fontFamily:"Calibri"}}>
+        <Navbar style={{marginLeft:187}} color='dark' className='w-50 d-flex flex-direction-row'>
+      <Container className='d-flex justify-content-around'>
+        <NavbarBrand className='text-white my-1'>Players</NavbarBrand>
+        <NavItem>
+          <Link className="btn btn-primary my-3" onClick={() => {window.location.href="/addHistoryPoints"}}>Add a new Player
+          </Link>
+        </NavItem>
+      </Container>
+
+    </Navbar>
         
         <h2 >All time points Leaders</h2>
     
@@ -86,7 +96,7 @@ export const History = () => {
             <h5>{player.points} points</h5>
             <h6>{player.gamesPlayed} games played</h6>
             <div className='d-flex flex-row'>
-            <button  className='btn btn-warning'>Edit</button>
+            <Link to={`/editHistoryPoints/${player.id}`} onClick={() => {window.location.href=`/editHistoryPoints/${player.id}`}} className='btn btn-warning'>Edit</Link>
             <button onClick={() => { if (window.confirm(`Are u sure u want to delete " ${player.fullName} " ?`)) deletePlayers(player.id) }} className='btn btn-danger'>Delete</button>
             </div>
         </div>

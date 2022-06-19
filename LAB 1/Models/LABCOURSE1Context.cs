@@ -36,10 +36,11 @@ namespace LAB_1.Models
         {
             modelBuilder.Entity<Arena>(entity =>
             {
+                entity.ToTable("Arena");
+
                 entity.Property(e => e.ImageName)
                     .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("imageName");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Location)
                     .HasMaxLength(50)
@@ -56,8 +57,7 @@ namespace LAB_1.Models
                 entity.HasOne(d => d.TeamNavigation)
                     .WithMany(p => p.Arenas)
                     .HasForeignKey(d => d.Team)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Arenas_Teams");
+                    .HasConstraintName("FK_Arena_Teams");
             });
 
             modelBuilder.Entity<Game>(entity =>

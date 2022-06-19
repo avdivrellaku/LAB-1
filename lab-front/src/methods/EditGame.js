@@ -75,16 +75,16 @@ export const EditGame = (props) => {
     <Form  className='d-flex flex-column' style={{marginLeft:500,width:"30%"}}>
     
 
-    <Input name='id' value={formData.id} readOnly style={{width: "100%"}} type="number"></Input> 
+    <Input name='id' value={formData.id} readOnly style={{width: "100%"}}  placeholder='Id' type="number"></Input> 
     <Label></Label>
 
-    <Input name='team1' value={formData.team1} style={{width: "100%"}} type="text"   onChange={handleChange}></Input>
+    <Input name='team1' value={formData.team1} style={{width: "100%"}} type="text" placeholder='Team 1'  onChange={handleChange}></Input>
     <Label></Label>
-    <Input name='team2' value={formData.team2} style={{width: "100%"}} type="text"  onChange={handleChange}></Input>
+    <Input name='team2' value={formData.team2} style={{width: "100%"}} type="text" placeholder='Team 2' onChange={handleChange}></Input>
     <Label></Label>
-    <Input name='score' value={formData.score} style={{width: "100%"}} type="text"  onChange={handleChange} ></Input>  
+    <Input name='score' value={formData.score} style={{width: "100%"}} type="text" placeholder='Score' onChange={handleChange} ></Input>  
     <Label></Label>
-    <Input name='date' value={formData.date} style={{width: "100%"}} type="date" onChange={handleChange}></Input>
+    <Input name='date' value={formData.date} style={{width: "100%"}} type="date" placeholder='Date' onChange={handleChange}></Input>
     <Label></Label>
  
    <Button onClick={handleSubmit}  className='btn btn-success  align-self-center' type="submit">

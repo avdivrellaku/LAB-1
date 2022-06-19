@@ -82,15 +82,15 @@ export const EditTeam = (props) => {
             <Input name='id' value={formData.id} readOnly style={{ width: "100%" }} type="text"></Input>
             <Label></Label>
 
-            <Input name='name' value={formData.name} style={{ width: "100%" }} type="text"  onChange={handleChange}></Input>
+            <Input name='name' value={formData.name} style={{ width: "100%" }} type="text" placeholder='Name' onChange={handleChange}></Input>
             <Label></Label>
-            <Input name='owner' value={formData.owner} style={{ width: "100%" }} type="text"  onChange={handleChange}></Input>
+            <Input name='owner' value={formData.owner} style={{ width: "100%" }} type="text" placeholder='Owner' onChange={handleChange}></Input>
             <Label></Label>
-            <Input name='coach' value={formData.coach} style={{ width: "100%" }} type="text" onChange={handleChange} ></Input>
+            <Input name='coach' value={formData.coach} style={{ width: "100%" }} type="text" placeholder='Coach' onChange={handleChange} ></Input>
             <Label></Label>
-            <Input name='division' value={formData.division} style={{ width: "100%" }} type="text"  onChange={handleChange}></Input>
+            <Input name='division' value={formData.division} style={{ width: "100%" }} type="text" placeholder='Divison' onChange={handleChange}></Input>
             <Label></Label>
-            <Input name='conference' value={formData.conference} style={{ width: "100%" }} type="text"  onChange={handleChange}></Input>
+            <Input name='conference' value={formData.conference} style={{ width: "100%" }} type="text" placeholder='Conference'  onChange={handleChange}></Input>
             <Label></Label>
 
             <Button onClick={handleSubmit} className='btn btn-success  align-self-center' type="submit">

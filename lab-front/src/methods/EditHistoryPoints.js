@@ -3,14 +3,14 @@ import React,{useState,setState,useEffect} from 'react';
 import {Form,Label,Input,Button} from 'reactstrap';
 
 
-export const EditPlayer = (props) => {
+export const EditHistoryPoints = (props) => {
   
   const [formData, setFormData] = useState([]);
   const playerId = (props.match.params.id);
 
 
   function getPlayerById(){
-    const url = `http://localhost:5164/api/Players/${playerId}`;
+    const url = `http://localhost:5164/api/HistoryPoints/${playerId}`;
     fetch(url,{
       method: 'GET'
     })
@@ -41,15 +41,15 @@ export const EditPlayer = (props) => {
 
     const playerToEdit = {
     id: formData.id,
-    firstName:formData.firstName,
-    lastName:formData.lastName,
-    age:formData.age,
-    position:formData.position,
-    team:formData.team
+    nr:formData.nr,
+    fullName:formData.fullName,
+    points:formData.points,
+    gamesPlayed:formData.gamesPlayed,
+    imageName:formData.imageName
     };
 
 
-    const url = 'http://localhost:5164/api/Players';
+    const url = 'http://localhost:5164/api/HistoryPoints';
 
     fetch(url, {
       method: 'PUT',
@@ -67,7 +67,7 @@ export const EditPlayer = (props) => {
     });
 
     alert('Player updated successfully!');
-    {window.location.href="/playersHome"}
+    {window.location.href="/History"}
 
 
   });
@@ -81,18 +81,18 @@ export const EditPlayer = (props) => {
     <Form  className='d-flex flex-column' style={{marginLeft:500,width:"30%"}}>
     
 
-    <Input name='id' value={formData.id} readOnly style={{width: "100%"}} type="text"></Input> 
+    <Input name='id' value={formData.id} readOnly style={{width: "100%"}} placeholder='Id' type="text"></Input> 
     <Label></Label>
 
-    <Input name='firstName' value={formData.firstName} style={{width: "100%"}} type="text" placeholder='First Name'  onChange={handleChange}></Input>
+    <Input name='nr' value={formData.nr} style={{width: "100%"}} type="text"  placeholder='Nr' onChange={handleChange}></Input>
     <Label></Label>
-    <Input name='lastName' value={formData.lastName} style={{width: "100%"}} type="text" placeholder='Last Name' onChange={handleChange}></Input>
+    <Input name='fullName' value={formData.fullName} style={{width: "100%"}} type="text" placeholder='Full Name'  onChange={handleChange}></Input>
     <Label></Label>
-    <Input name='age' value={formData.age} style={{width: "100%"}} type="number" placeholder='Age'  onChange={handleChange} ></Input>  
+    <Input name='points' value={formData.points} style={{width: "100%"}} type="number" placeholder='Points'  onChange={handleChange} ></Input>  
     <Label></Label>
-    <Input name='position' value={formData.position} style={{width: "100%"}} type="text" placeholder='Position' onChange={handleChange}></Input>
+    <Input name='gamesPlayed' value={formData.gamesPlayed} style={{width: "100%"}} type="number" placeholder='Games Played' onChange={handleChange}></Input>
     <Label></Label>
-    <Input name='team'  value={formData.team} style={{width: "100%"}} type="text" placeholder='Team' onChange={handleChange}></Input>
+    <Input name='imageName'  value={formData.imageName} style={{width: "100%"}} type="imageName"  placeholder='Image Name' onChange={handleChange}></Input>
     <Label></Label>
  
    <Button onClick={handleSubmit}  className='btn btn-success  align-self-center' type="submit">

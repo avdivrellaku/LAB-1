@@ -85,17 +85,17 @@ export const EditUser = (props) => {
     <Input name='id' value={formData.id} readOnly style={{width: "100%"}} type="text" ></Input> 
     <Label></Label>
 
-    <Input name='firstName' value={formData.firstName} style={{width: "100%"}} type="int"   onChange={handleChange}></Input>
+    <Input name='firstName' value={formData.firstName} style={{width: "100%"}} type="int"  placeholder='First Name' onChange={handleChange}></Input>
     <Label></Label>
-    <Input name='lastName' value={formData.lastName} style={{width: "100%"}} type="text"  onChange={handleChange}></Input>
+    <Input name='lastName' value={formData.lastName} style={{width: "100%"}} type="text" placeholder='Last Name' onChange={handleChange}></Input>
     <Label></Label>
-    <Input name='username' value={formData.username} style={{width: "100%"}} type="text"  onChange={handleChange} ></Input>  
+    <Input name='username' value={formData.username} style={{width: "100%"}} type="text" placeholder='Username' onChange={handleChange} ></Input>  
     <Label></Label>
-    <Input name='email' value={formData.email} style={{width: "100%"}} type="text" onChange={handleChange}></Input>
+    <Input name='email' value={formData.email} style={{width: "100%"}} type="text" placeholder='Email' onChange={handleChange}></Input>
     <Label></Label>
-    <Input name='password'  value={formData.password} style={{width: "100%"}} type="text"  onChange={handleChange}></Input>
+    <Input name='password'  value={formData.password} style={{width: "100%"}} type="text" placeholder='Password'  onChange={handleChange}></Input>
     <Label></Label>
-    <Input name='role'  value={formData.role} style={{width: "100%"}} type="text"  onChange={handleChange}></Input>
+    <Input name='role'  value={formData.role} style={{width: "100%"}} type="text" placeholder='Role' onChange={handleChange}></Input>
     <Label></Label>
  
    <Button onClick={handleSubmit}  className='btn btn-success  align-self-center' type="submit">
