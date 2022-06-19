@@ -5,16 +5,9 @@ import {Form,Label,Input,Button} from 'reactstrap';
 
 export const EditArena = (props) => {
   
-  const [arenaById, setArenaById] = useState([]);
+  const [formData, setFormData] = useState([]);
   const arenaId = (props.match.params.id);
-  const arenaName = (props.match.params.name);
-  const arenaLocation = (props.match.params.location);
-  const arenaTeam = (props.match.params.team);
-  const arenaCapacity = (props.match.params.capacity);
-  const arenaImageName = (props.match.params.imageName);
-
   
-
   function getArenaById(){
     const url = `http://localhost:5164/api/Arenas/${arenaId}`;
     fetch(url,{
@@ -23,7 +16,7 @@ export const EditArena = (props) => {
     .then(response => response.json())
     .then(arenasFromServer =>{
       console.log(arenasFromServer);
-      setArenaById(arenasFromServer);
+      setFormData(arenasFromServer);
     })
     .catch(error =>{
       console.log(error);
@@ -31,19 +24,6 @@ export const EditArena = (props) => {
   }
 
   useEffect(getArenaById,[]);
-
-
-  const initialFormData = {
-    id: arenaId,
-    name:arenaName,
-    location:arenaLocation,
-    team:arenaTeam,
-    capacity:arenaCapacity,
-    imageName:arenaImageName
-  };
-
-  const [formData, setFormData] = useState(initialFormData);
-
 
   const handleChange = (e => {
     setFormData({
@@ -97,7 +77,7 @@ export const EditArena = (props) => {
     <Form  className='d-flex flex-column' style={{marginLeft:500,width:"30%"}}>
     
 
-    <Input name='id' value={formData.id} readOnly style={{width: "100%"}} type="text" placeholder={arenaById.id}></Input> 
+    <Input name='id' value={formData.id} readOnly style={{width: "100%"}} type="text"></Input> 
     <Label></Label>
 
     <Input name='name' value={formData.name} style={{width: "100%"}} type="int"   onChange={handleChange}></Input>

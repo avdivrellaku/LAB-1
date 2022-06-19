@@ -4,13 +4,8 @@ import {Form,Label,Input,Button} from 'reactstrap';
 
 export const EditGame = (props) => {
   
-  const [gameById, setGameById] = useState([]);
+  const [formData, setFormData] = useState([]);
   const gameId = (props.match.params.id);
-  const gameTeam1 = (props.match.params.team1);
-  const gameTeam2 = (props.match.params.team2);
-  const gameScore = (props.match.params.score);
-  const gameDate = (props.match.params.date);
-  
 
   function getGameById(){
     const url = `http://localhost:5164/api/Game/${gameId}`;
@@ -20,7 +15,7 @@ export const EditGame = (props) => {
     .then(response => response.json())
     .then(GamesFromServer =>{
       console.log(GamesFromServer);
-      setGameById(GamesFromServer);
+      setFormData(GamesFromServer);
     })
     .catch(error =>{
       console.log(error);
@@ -28,18 +23,6 @@ export const EditGame = (props) => {
   }
 
   useEffect(getGameById,[]);
-
-
-  const initialFormData = {
-    id: gameId,
-    team1:gameTeam1,
-    team2:gameTeam2,
-    score:gameScore,
-    date:gameDate
-  };
-
-  const [formData, setFormData] = useState(initialFormData);
-
 
   const handleChange = (e => {
     setFormData({
@@ -92,7 +75,7 @@ export const EditGame = (props) => {
     <Form  className='d-flex flex-column' style={{marginLeft:500,width:"30%"}}>
     
 
-    <Input name='id' value={formData.id} readOnly style={{width: "100%"}} type="number" placeholder={gameById.id}></Input> 
+    <Input name='id' value={formData.id} readOnly style={{width: "100%"}} type="number"></Input> 
     <Label></Label>
 
     <Input name='team1' value={formData.team1} style={{width: "100%"}} type="text"   onChange={handleChange}></Input>
@@ -101,7 +84,7 @@ export const EditGame = (props) => {
     <Label></Label>
     <Input name='score' value={formData.score} style={{width: "100%"}} type="text"  onChange={handleChange} ></Input>  
     <Label></Label>
-    <Input name='date' value={formData.date} style={{width: "100%"}} type="text" onChange={handleChange}></Input>
+    <Input name='date' value={formData.date} style={{width: "100%"}} type="date" onChange={handleChange}></Input>
     <Label></Label>
  
    <Button onClick={handleSubmit}  className='btn btn-success  align-self-center' type="submit">
