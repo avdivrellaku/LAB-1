@@ -52,12 +52,6 @@ namespace LAB_1.Models
                 entity.Property(e => e.Team)
                     .HasMaxLength(50)
                     .IsUnicode(false);
-
-                entity.HasOne(d => d.TeamNavigation)
-                    .WithMany(p => p.Arenas)
-                    .HasForeignKey(d => d.Team)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Arenas_Teams");
             });
 
             modelBuilder.Entity<Game>(entity =>
