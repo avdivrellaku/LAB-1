@@ -82,7 +82,7 @@ export const HistoryAssists = () => {
         <Container className='d-flex justify-content-around'>
           <NavbarBrand className='text-white my-1'>History Assists</NavbarBrand>
           <NavItem>
-            <Link className="btn btn-primary my-3" onClick={() => { window.location.href = "/AddHistoryAssists" }}>Add a new History Assist
+            <Link className="btn btn-primary my-3" onClick={() => { window.location.href = "/AddHistoryAssists" }}>Add a new Player
             </Link>
           </NavItem>
         </Container>

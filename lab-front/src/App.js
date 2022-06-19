@@ -22,13 +22,15 @@ import { History } from './methods/History';
 import { Arenas } from './methods/Arenas';
 import {AddHistoryPoints} from './methods/AddHistoryPoints';
 import {EditHistoryPoints} from './methods/EditHistoryPoints';
-
+import {AddHistoryAssists} from './methods/AddHistoryAssists';
+import {EditHistoryAssists} from './methods/EditHistoryAssists';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   Navbar,
   NavItem,
   Container
 } from 'reactstrap';
+import { HistoryAssists } from './methods/HistoryAssists';
 
 
 
@@ -56,11 +58,14 @@ function App() {
           <Route path="/usersHome" component={UsersHome} />
           <Route path="/Register" component={Register} />
           <Route path="/History" component={History} />
+          <Route path="/addHistoryAssists" component={AddHistoryAssists} />
+          <Route path="/HistoryAssists" component={HistoryAssists} />
           <Route path="/Arenas" component={Arenas} />
           <Route path="/AddArena" component={AddArena} />
           <Route path="/addHistoryPoints" component={AddHistoryPoints} />
           <Route path="/editPlayer/:id" component={EditPlayer} />
           <Route path="/editHistoryPoints/:id" component={EditHistoryPoints} />
+          <Route path="/editHistoryAssists/:id" component={EditHistoryAssists} />
           <Route path="/editTeam/:id" component={EditTeam} />
           <Route path="/editGame/:id" component={EditGame} />
           <Route path="/editUser/:id" component={EditUser} />

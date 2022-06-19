@@ -65,11 +65,11 @@ export const AddHistoryAssists = () => {
        <Label></Label>
        <Input name='fullName' style={{width: "100%"}} type="text" placeholder='Full Name' onChange={handleChange}></Input>
        <Label></Label>
-       <Input name='points' style={{width: "100%"}} type="number" placeholder='Points' onChange={handleChange}></Input>  
+       <Input name='points' style={{width: "100%"}} type="number" placeholder='Assists' onChange={handleChange}></Input>  
        <Label></Label>
        <Input name='gamesPlayed' style={{width: "100%"}} type="number" placeholder='Games Played' onChange={handleChange}></Input>
        <Label></Label>
-       <Input name='turnovers' style={{width: "100%"}} type="number" placeholder='Turn Overs' onChange={handleChange}></Input>
+       <Input name='turnovers' style={{width: "100%"}} type="number" placeholder='Turnovers' onChange={handleChange}></Input>
        <Label></Label>
        <Input name='imageName' style={{width: "100%"}} type="text" placeholder='Image Name' onChange={handleChange}></Input>
        <Label></Label>

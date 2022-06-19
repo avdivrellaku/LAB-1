@@ -32,6 +32,9 @@ export const Home = () => {
             <NavItem className='d-flex justify-content-between'>
             <Link to="/" className="btn btn-dark my-3" onClick={() => { window.location.href = "/Arenas" }}>Arenas</Link>
             </NavItem>
+            <NavItem className='d-flex justify-content-between'>
+            <Link to="/" className="btn btn-dark my-3" onClick={() => { window.location.href = "/HistoryAssists" }}>History Assists</Link>
+            </NavItem>
 
           </Container>
 

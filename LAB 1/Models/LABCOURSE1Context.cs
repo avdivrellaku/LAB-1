@@ -93,12 +93,20 @@ namespace LAB_1.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
+                entity.Property(e => e.GamesPlayed)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.ImageName)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("imageName");
 
                 entity.Property(e => e.Nr).HasColumnName("nr");
+
+                entity.Property(e => e.Points)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<HistoryPoint>(entity =>
@@ -109,7 +117,7 @@ namespace LAB_1.Models
                     .HasColumnName("id");
 
                 entity.Property(e => e.FullName)
-                    .HasMaxLength(50)
+                    .HasMaxLength(150)
                     .IsUnicode(false);
 
                 entity.Property(e => e.ImageName)
@@ -174,8 +182,6 @@ namespace LAB_1.Models
             {
                 entity.ToTable("User");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.Email)
                     .HasMaxLength(50)
                     .IsUnicode(false);
@@ -188,13 +194,12 @@ namespace LAB_1.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Password)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                entity.Property(e => e.Password).IsUnicode(false);
 
                 entity.Property(e => e.Role)
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("(user_name())");
 
                 entity.Property(e => e.Username)
                     .HasMaxLength(50)
