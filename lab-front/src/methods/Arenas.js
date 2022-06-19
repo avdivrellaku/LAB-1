@@ -82,7 +82,7 @@ export const Arenas = () => {
       </Navbar>
       <div className='d-flex flex-row flex-wrap' style={{ marginLeft: 50, width: "100%" }}>
         {arenas.map(arena => (
-          <div className="card" style={{ width: "300px" }}>
+          <div className="card" style={{ width: "300px",marginTop:10 }}>
             <img style={{height:"100%",width:"100%"}} src={`images/${arena.imageName}`} alt="Card image cap" />
             <div className="card-header">
               {arena.name}
