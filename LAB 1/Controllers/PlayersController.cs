@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Dapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Data.SqlClient;
 
 namespace LAB_1.Controllers
 {
@@ -9,18 +11,56 @@ namespace LAB_1.Controllers
     {
       
         private readonly LABCOURSE1Context context;
+        private readonly IConfiguration configuration;
 
-        public PlayersController(LABCOURSE1Context context)
+        public PlayersController(LABCOURSE1Context context, IConfiguration config)
         {
             this.context = context;
+            this.configuration = config;
         }
           [HttpGet]
-        public async Task<ActionResult<List<Player>>> Get()
+
+          public async Task<ActionResult<List<Player>>> Get()
         {
-          
-            return Ok(await this.context.Players.ToListAsync());
-   
+            using var connection = new SqlConnection(this.configuration.GetConnectionString("LabCourseConn"));
+
+            var players = await connection.QueryAsync<Player>("Select * from Players");
+
+            return Ok(players);
         }
+
+        [HttpGet]
+        [Route("Guards")]
+        public async Task<ActionResult<List<Player>>> GetGuards()
+        {
+            using var connection = new SqlConnection(this.configuration.GetConnectionString("LabCourseConn"));
+
+            var players = await connection.QueryAsync<Player>("Select * from Players where position = 'PG' or postion = 'SG' ");
+
+            return Ok(players);
+        }
+        [HttpGet]
+        [Route("Forwards")]
+        public async Task<ActionResult<List<Player>>> GetFwd()
+        {
+            using var connection = new SqlConnection(this.configuration.GetConnectionString("LabCourseConn"));
+
+            var players = await connection.QueryAsync<Player>("Select * from Players where position = 'SF' or postion = 'PF' ");
+
+            return Ok(players);
+        }
+
+        [HttpGet]
+        [Route("Centers")]
+        public async Task<ActionResult<List<Player>>> GetCenters()
+        {
+            using var connection = new SqlConnection(this.configuration.GetConnectionString("LabCourseConn"));
+
+            var players = await connection.QueryAsync<Player>("Select * from Players where position = 'C' ");
+
+            return Ok(players);
+        }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<List<Player>>> Get(String id)
         {
