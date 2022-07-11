@@ -10,6 +10,8 @@ namespace LAB_1.Models
         public string LastName { get; set; } = null!;
         public int? Age { get; set; }
         public string? Position { get; set; }
-        public string? Team { get; set; }
+        public string Team { get; set; } = null!;
+
+        public virtual Team TeamNavigation { get; set; } = null!;
     }
 }

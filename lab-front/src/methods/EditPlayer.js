@@ -93,7 +93,7 @@ export const EditPlayer = (props) => {
     <Input name='position' value={formData.position} style={{width: "100%"}} type="text" placeholder='Position' onChange={handleChange}></Input>
     <Label></Label>
     <Input name='team'  value={formData.team} style={{width: "100%"}} type="text" placeholder='Team' onChange={handleChange}></Input>
-    <Label></Label>
+    <Label>{formData.firstName}</Label>
  
    <Button onClick={handleSubmit}  className='btn btn-success  align-self-center' type="submit">
      Save 

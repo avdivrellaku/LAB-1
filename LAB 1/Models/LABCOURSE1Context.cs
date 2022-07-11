@@ -20,6 +20,7 @@ namespace LAB_1.Models
         public virtual DbSet<Game> Games { get; set; } = null!;
         public virtual DbSet<HistoryAssist> HistoryAssists { get; set; } = null!;
         public virtual DbSet<HistoryPoint> HistoryPoints { get; set; } = null!;
+        public virtual DbSet<News> News { get; set; } = null!;
         public virtual DbSet<Player> Players { get; set; } = null!;
         public virtual DbSet<Team> Teams { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
@@ -67,7 +68,7 @@ namespace LAB_1.Models
 
                 entity.Property(e => e.Id).ValueGeneratedNever();
 
-                entity.Property(e => e.Date).HasColumnType("date");
+                entity.Property(e => e.Date).IsUnicode(false);
 
                 entity.Property(e => e.Score)
                     .HasMaxLength(50)
@@ -89,15 +90,7 @@ namespace LAB_1.Models
                     .IsUnicode(false)
                     .HasColumnName("id");
 
-                entity.Property(e => e.Assists)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
                 entity.Property(e => e.FullName)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.GamesPlayed)
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
@@ -128,6 +121,25 @@ namespace LAB_1.Models
                 entity.Property(e => e.Nr).HasColumnName("nr");
             });
 
+            modelBuilder.Entity<News>(entity =>
+            {
+                entity.Property(e => e.DatePublished).IsUnicode(false);
+
+                entity.Property(e => e.FullArticle).IsUnicode(false);
+
+                entity.Property(e => e.ImageName)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.SmallDesc)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Title)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<Player>(entity =>
             {
                 entity.Property(e => e.Id)
@@ -149,6 +161,12 @@ namespace LAB_1.Models
                 entity.Property(e => e.Team)
                     .HasMaxLength(50)
                     .IsUnicode(false);
+
+                entity.HasOne(d => d.TeamNavigation)
+                    .WithMany(p => p.Players)
+                    .HasForeignKey(d => d.Team)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Players_Teams");
             });
 
             modelBuilder.Entity<Team>(entity =>

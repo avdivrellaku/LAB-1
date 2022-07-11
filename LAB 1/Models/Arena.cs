@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
 
 namespace LAB_1.Models
 {
@@ -13,7 +12,6 @@ namespace LAB_1.Models
         public int? Capacity { get; set; }
         public string? ImageName { get; set; }
 
-        [JsonIgnore]
-        public virtual Team? TeamNavigation { get; set; } = null!;
+        public virtual Team? TeamNavigation { get; set; }
     }
 }

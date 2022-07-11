@@ -8,6 +8,7 @@ namespace LAB_1.Models
         public Team()
         {
             Arenas = new HashSet<Arena>();
+            Players = new HashSet<Player>();
         }
 
         public string Id { get; set; } = null!;
@@ -18,5 +19,6 @@ namespace LAB_1.Models
         public string? Conference { get; set; }
 
         public virtual ICollection<Arena> Arenas { get; set; }
+        public virtual ICollection<Player> Players { get; set; }
     }
 }

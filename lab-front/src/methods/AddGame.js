@@ -65,7 +65,7 @@ export const AddGames = () => {
        <Label></Label>
        <Input name='score' style={{width: "100%"}} type="text" placeholder='Score' onChange={handleChange}></Input>  
        <Label></Label>
-       <Input name='date' style={{width: "100%"}} type="date" placeholder='Date' onChange={handleChange}></Input>
+       <Input name='date' maxLength={10} style={{width: "100%"}} type="date" placeholder='Date' onChange={handleChange}></Input>
        <Label></Label>
        
     

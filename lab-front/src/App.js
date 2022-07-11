@@ -24,6 +24,7 @@ import {AddHistoryPoints} from './methods/AddHistoryPoints';
 import {EditHistoryPoints} from './methods/EditHistoryPoints';
 import {AddHistoryAssists} from './methods/AddHistoryAssists';
 import {EditHistoryAssists} from './methods/EditHistoryAssists';
+import {ReadMore} from './methods/ReadMore';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   Navbar,
@@ -46,9 +47,8 @@ function App() {
       
           
 
-
       
-        <Route  path="/" component={Home} />
+        <Route  exact path="/" component={Home} />
           <Route  path="/playersHome" component={PlayersHome} />
           <Route  path="/teamHome" component={TeamHome} />
           <Route path="/addPlayer" component={AddPlayer} />
@@ -70,8 +70,9 @@ function App() {
           <Route path="/editGame/:id" component={EditGame} />
           <Route path="/editUser/:id" component={EditUser} />
           <Route path="/editArena/:id" component={EditArena} />
+          <Route path="/readArticle/:id" component={ReadMore}/>
 
-       
+          
       </Router>
 
     </div>
