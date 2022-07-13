@@ -35,7 +35,7 @@ namespace LAB_1.Controllers
         {
             using var connection = new SqlConnection(this.configuration.GetConnectionString("LabCourseConn"));
 
-            var players = await connection.QueryAsync<Player>("Select * from Players where position = 'PG' or postion = 'SG' ");
+            var players = await connection.QueryAsync<Player>("Select * from Players where position = 'PG' or position = 'SG' ");
 
             return Ok(players);
         }
@@ -45,7 +45,7 @@ namespace LAB_1.Controllers
         {
             using var connection = new SqlConnection(this.configuration.GetConnectionString("LabCourseConn"));
 
-            var players = await connection.QueryAsync<Player>("Select * from Players where position = 'SF' or postion = 'PF' ");
+            var players = await connection.QueryAsync<Player>("Select * from Players where position = 'SF' or position = 'PF' ");
 
             return Ok(players);
         }

@@ -111,6 +111,7 @@ export const UsersHome = () => {
 
     </Navbar>
 
+    <img src='images/kobe.png'/>
       
         <table className='table'>
           <thead>

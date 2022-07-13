@@ -29,6 +29,15 @@ namespace LAB_1.Controllers
 
         }
 
+        [HttpPost]
+        public async Task<ActionResult<List<News>>> AddGame(News article)
+        {
+            this.context.News.Add(article);
+            await this.context.SaveChangesAsync();
+            return Ok(await this.context.News.ToListAsync());
+
+        }
+
         [HttpPut]
         public async Task<ActionResult<List<News>>> UpdatePlayers(News newsu)
         {

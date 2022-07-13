@@ -25,12 +25,11 @@ import {EditHistoryPoints} from './methods/EditHistoryPoints';
 import {AddHistoryAssists} from './methods/AddHistoryAssists';
 import {EditHistoryAssists} from './methods/EditHistoryAssists';
 import {ReadMore} from './methods/ReadMore';
+import {Login} from './methods/Login';
+import {Players} from './methods/Players';
+import {AddNews} from './methods/AddNews';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {
-  Navbar,
-  NavItem,
-  Container
-} from 'reactstrap';
+
 import { HistoryAssists } from './methods/HistoryAssists';
 
 
@@ -71,6 +70,9 @@ function App() {
           <Route path="/editUser/:id" component={EditUser} />
           <Route path="/editArena/:id" component={EditArena} />
           <Route path="/readArticle/:id" component={ReadMore}/>
+          <Route path="/login" component={Login}/>
+          <Route path="/Players" component={Players}/>
+          <Route path="/AddNews" component={AddNews}/>
 
           
       </Router>

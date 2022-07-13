@@ -1,13 +1,13 @@
 
 import React,{useState,setState,useEffect} from 'react';
-import {Form,Label,Input,Button} from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 
 export const ReadMore = (props) => {
   
   const [formData, setFormData] = useState([]);
   const newsId = (props.match.params.id);
-
+  const title = (props.match.params.imageName);
 
   function getNewsById(){
     const url = `http://localhost:5164/api/News/${newsId}`;
@@ -29,57 +29,25 @@ export const ReadMore = (props) => {
 
 
 
-  const handleChange = (e => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  });
-
-  const handleSubmit = (e =>{
-    e.preventDefault();
-
-    const newsToEdit = {
-    id:formData.id,
-    title:formData.title,
-    smallDesc:formData.smallDesc,
-    fullArticle:formData.fullArticle,
-    datePublished:formData.datePublished,
-    imageName:formData.imageName
-    };
-
-
-    const url = 'http://localhost:5164/api/News';
-
-    fetch(url, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(newsToEdit)
-    })
-    .then(response => response.json())
-    .then(responseFromServer => {
-      console.log(responseFromServer);
-    })
-    .catch(error =>{
-      console.log(error);
-    });
-
-    alert('Player updated successfully!');
-    {window.location.href="/playersHome"}
-
-
-  });
-        
-
-
-     
-
 
   return (
-    <div>
-        {formData.fullArticle}
+    <div  style={{width:"60%",fontFamily:"Calibri",marginLeft:"25%"}} className='d-flex flex-column flex-wrap' >
+
+      <h3 style={{fontSize:"35px",fontWeight:"bolder"}} >{formData.title}</h3>
+
+
+
+        <h4 style={{fontSize:"25px",fontWeight:"500"}}>{formData.smallDesc}</h4>
+
+        <p style={{fontSize:"18px",fontWeight:"300"}}>{formData.fullArticle}</p>
+
+        <Link to="/" onClick={() => {window.location.href="/"}}>Return to Main Page</Link>
+
+        
+
+       
+
+
         </div>
   )
 }

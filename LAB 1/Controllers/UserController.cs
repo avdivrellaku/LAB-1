@@ -42,7 +42,7 @@ namespace LAB_1.Controllers
 
             if (dbuser == null){
 
-                return BadRequest();
+                return BadRequest("User is null");
             }
 
             string token = CreateToken(dbuser);
@@ -57,9 +57,9 @@ namespace LAB_1.Controllers
         {
             List<Claim> claims = new List<Claim>
             {
-                new Claim("First Name",user.FirstName),
-                new Claim("Last Name",user.LastName),
-                new Claim("Username",user.Username),
+                new Claim("firstName",user.FirstName),
+                new Claim("lastName",user.LastName),
+                new Claim("username",user.Username),
                 new Claim("Role",user.Role)
 
             };
@@ -70,7 +70,7 @@ namespace LAB_1.Controllers
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
             var token = new JwtSecurityToken(
                 claims: claims,
-                expires: DateTime.Now.AddDays(1),
+                expires: DateTime.Now.AddMinutes(1),
                 signingCredentials: creds);
 
             var jwt = new JwtSecurityTokenHandler().WriteToken(token);

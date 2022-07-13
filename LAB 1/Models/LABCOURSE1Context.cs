@@ -131,13 +131,9 @@ namespace LAB_1.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.SmallDesc)
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
+                entity.Property(e => e.SmallDesc).IsUnicode(false);
 
-                entity.Property(e => e.Title)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                entity.Property(e => e.Title).IsUnicode(false);
             });
 
             modelBuilder.Entity<Player>(entity =>
