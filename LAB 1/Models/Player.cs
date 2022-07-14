@@ -12,6 +12,6 @@ namespace LAB_1.Models
         public string? Position { get; set; }
         public string Team { get; set; } = null!;
 
-        public virtual Team TeamNavigation { get; set; } = null!;
+        public virtual Team? TeamNavigation { get; set; } = null!;
     }
 }

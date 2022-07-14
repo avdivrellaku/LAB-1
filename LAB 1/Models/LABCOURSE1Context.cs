@@ -17,6 +17,7 @@ namespace LAB_1.Models
         }
 
         public virtual DbSet<Arena> Arenas { get; set; } = null!;
+        public virtual DbSet<AwardWinner> AwardWinners { get; set; } = null!;
         public virtual DbSet<Game> Games { get; set; } = null!;
         public virtual DbSet<HistoryAssist> HistoryAssists { get; set; } = null!;
         public virtual DbSet<HistoryPoint> HistoryPoints { get; set; } = null!;
@@ -60,6 +61,27 @@ namespace LAB_1.Models
                     .WithMany(p => p.Arenas)
                     .HasForeignKey(d => d.Team)
                     .HasConstraintName("FK_Arena_Teams");
+            });
+
+            modelBuilder.Entity<AwardWinner>(entity =>
+            {
+                entity.HasKey(e => new { e.Id, e.YearWon, e.Award });
+
+                entity.Property(e => e.Id)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.YearWon)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Award)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Name)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Game>(entity =>
