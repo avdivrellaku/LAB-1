@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Dapper;
+using Microsoft.AspNetCore.Mvc;
+using System.Data.SqlClient;
 
 namespace LAB_1.Controllers
 {
@@ -7,10 +9,12 @@ namespace LAB_1.Controllers
     public class TeamController : Controller
     {
         private readonly LABCOURSE1Context context;
+        private readonly IConfiguration configuration;
 
-        public TeamController(LABCOURSE1Context context)
+        public TeamController(LABCOURSE1Context context,IConfiguration config)
         {
             this.context = context;
+            this.configuration = config;
         }
 
         [HttpGet]
@@ -21,6 +25,28 @@ namespace LAB_1.Controllers
 
 
 
+        }
+
+        [HttpGet]
+        [Route("East")]
+        public async Task<ActionResult<List<Team>>> GetEastern()
+        {
+            using var connection = new SqlConnection(this.configuration.GetConnectionString("LabCourseConn"));
+
+            var teams = await connection.QueryAsync<Team>("Select * from Teams where conference = 'Eastern Conference' order by division");
+
+            return Ok(teams);
+        }
+
+        [HttpGet]
+        [Route("West")]
+        public async Task<ActionResult<List<Team>>> GetWestern()
+        {
+            using var connection = new SqlConnection(this.configuration.GetConnectionString("LabCourseConn"));
+
+            var teams = await connection.QueryAsync<Team>("Select * from Teams where conference = 'Western Conference' order by division ");
+
+            return Ok(teams);
         }
 
         [HttpGet("{id}")]
@@ -58,6 +84,7 @@ namespace LAB_1.Controllers
             dbTeam.Coach = team.Coach;
             dbTeam.Division = team.Division;
             dbTeam.Conference = team.Conference;
+            dbTeam.ImageName = team.ImageName;
 
             await this.context.SaveChangesAsync();
 

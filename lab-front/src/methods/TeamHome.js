@@ -128,6 +128,7 @@ export const TeamHome = () => {
             <th scope='col'>Coach</th>
             <th scope='col'>Divison</th>
             <th scope='col'>Conference</th>
+          
           </tr>
           {teams.map(team => (
             <tr key={team.id}>
@@ -137,7 +138,8 @@ export const TeamHome = () => {
               <td>{team.coach}</td>
               <td>{team.division}</td>
               <td>{team.conference}</td>
-              <td className='d-flex justify-content-around' ><Link to={`/editPlayer/${team.id}`} onClick={() => {window.location.href=`/editteam/${team.id}`}} className='btn btn-warning'>Edit</Link>
+              
+              <td className='d-flex justify-content-around' ><Link to={`/editTeam/${team.id}`} onClick={() => {window.location.href=`/editTeam/${team.id}`}} className='btn btn-warning'>Edit</Link>
                 <button onClick={() => { if (window.confirm(`Are u sure u want to delete " ${team.name} " ?`)) deleteTeam(team.id) }} className='btn btn-danger'>Delete</button></td>
             </tr>
 

@@ -44,7 +44,8 @@ export const EditTeam = (props) => {
             owner:formData.owner,
             coach:formData.coach,
             division:formData.division,
-            conference:formData.conference
+            conference:formData.conference,
+            imageName:formData.imageName
         };
 
         const url = 'http://localhost:5164/api/Team';
@@ -91,6 +92,8 @@ export const EditTeam = (props) => {
             <Input name='division' value={formData.division} style={{ width: "100%" }} type="text" placeholder='Divison' onChange={handleChange}></Input>
             <Label></Label>
             <Input name='conference' value={formData.conference} style={{ width: "100%" }} type="text" placeholder='Conference'  onChange={handleChange}></Input>
+            <Label></Label>
+            <Input name='imageName' value={formData.imageName} style={{ width: "100%" }} type="text" placeholder='Image Name'  onChange={handleChange}></Input>
             <Label></Label>
 
             <Button onClick={handleSubmit} className='btn btn-success  align-self-center' type="submit">

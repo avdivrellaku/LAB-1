@@ -17,7 +17,6 @@ export const AddHistoryPoints = () => {
     e.preventDefault();
     const playerToAdd = {
       id:FormData.id,
-      nr:FormData.nr,
       fullName:FormData.fullName,
       points:FormData.points,
       gamesPlayed:FormData.gamesPlayed,
@@ -58,9 +57,6 @@ export const AddHistoryPoints = () => {
     
 
        <Input name='id' style={{width: "100%"}} type="text" placeholder='Id' onChange={handleChange}></Input> 
-       <Label></Label>
-   
-       <Input name='nr' style={{width: "100%"}}type="number" placeholder='Number' onChange={handleChange}></Input>
        <Label></Label>
        <Input name='fullName' style={{width: "100%"}} type="text" placeholder='Full Name' onChange={handleChange}></Input>
        <Label></Label>

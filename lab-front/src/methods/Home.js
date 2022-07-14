@@ -49,46 +49,32 @@ export const Home = () => {
             <NavItem className='d-flex flex-column justify-content-center'>
               <Link to="/" style={{border:"2px solid black",padding:"5px",borderRadius:"2px",color:"white",backgroundColor:"black"}}   onClick={() => { window.location.href = "/" }}>Home</Link>
             </NavItem>
+           
+            
             <NavItem className='d-flex flex-column justify-content-center'>
-              <Link to="/playersHome" style={{border:"2px solid black",padding:"5px",borderRadius:"2px",color:"white",backgroundColor:"black"}}    onClick={() => { window.location.href = "/playersHome" }}>Players</Link>
-            </NavItem>
-            <NavItem className='d-flex flex-column justify-content-center'>
-              <Link to="/teamHome" style={{border:"2px solid black",padding:"5px",borderRadius:"2px",color:"white",backgroundColor:"black"}}    onClick={() => { window.location.href = "/teamHome" }}>Teams</Link>
-            </NavItem>
-            <NavItem className='d-flex flex-column justify-content-center'>
-              <Link to="/gamesHome" style={{border:"2px solid black",padding:"5px",borderRadius:"2px",color:"white",backgroundColor:"black"}}    onClick={() => { window.location.href = "/gamesHome" }}>Games</Link>
-            </NavItem>
-            <NavItem className='d-flex flex-column justify-content-center'>
-              <Link to="/UsersHome" style={{border:"2px solid black",padding:"5px",borderRadius:"2px",color:"white",backgroundColor:"black"}}    onClick={() => { window.location.href = "/UsersHome" }}>Users</Link>
-            </NavItem>
-            <NavItem className='d-flex flex-column justify-content-center'>
-            <Link to="/History"  style={{border:"2px solid black",padding:"5px",borderRadius:"2px",color:"white",backgroundColor:"black"}} onClick={() => { window.location.href = "/History" }}>History</Link>
-            </NavItem>
-            <NavItem className='d-flex flex-column justify-content-center'>
-            <Link to="/HistoryAssists" style={{border:"2px solid black",padding:"5px",borderRadius:"2px",color:"white",backgroundColor:"black"}}    onClick={() => { window.location.href = "/HistoryAssists" }}>History Assists</Link>
-            </NavItem>
-            <NavItem className='d-flex flex-column justify-content-center'>
-            <Link to="/Arenas" style={{border:"2px solid black",padding:"5px",borderRadius:"2px",color:"white",backgroundColor:"black"}}    onClick={() => { window.location.href = "/Arenas" }}>Arenas</Link>
+            <Link to="/Players" style={{border:"2px solid black",padding:"5px",borderRadius:"2px",color:"white",backgroundColor:"black"}}    onClick={() => { window.location.href = "/Players" }}>Players</Link>
             </NavItem> 
+             
+            <NavItem className='d-flex flex-column justify-content-center'>
+            <Link to="/Teams" style={{border:"2px solid black",padding:"5px",borderRadius:"2px",color:"white",backgroundColor:"black"}}    onClick={() => { window.location.href = "/Teams" }}>Teams</Link>
+            </NavItem>
+            <NavItem className='d-flex flex-column justify-content-center'>
+            <Link to="/ArenasHome" style={{border:"2px solid black",padding:"5px",borderRadius:"2px",color:"white",backgroundColor:"black"}}   onClick={() => { window.location.href = "/ArenasHome" }}>Arenas</Link>
+            </NavItem>
             <NavItem className='d-flex flex-column justify-content-center'>
             <Link to="/login" style={{border:"2px solid black",padding:"5px",borderRadius:"2px",color:"white",backgroundColor:"black"}}    onClick={() => { window.location.href = "/login" }}>Login</Link>
             </NavItem> 
             <NavItem className='d-flex flex-column justify-content-center'>
-            <Link to="/Players" style={{border:"2px solid black",padding:"5px",borderRadius:"2px",color:"white",backgroundColor:"black"}}    onClick={() => { window.location.href = "/Players" }}>Players</Link>
-            </NavItem> 
-            <NavItem className='d-flex flex-column justify-content-center'>
-            <Link to="/AddNews" style={{border:"2px solid black",padding:"5px",borderRadius:"2px",color:"white",backgroundColor:"black"}}    onClick={() => { window.location.href = "/AddNews" }}>News</Link>
-            </NavItem> 
+            <Link to="/Profile" style={{padding:"5px",borderRadius:"2px",color:"black"}}    onClick={() => { window.location.href = "/Profile" }}>{firstName}</Link>
+            </NavItem>
+          
+            
 
             
 
           </Container>
 
-<Container>
-  <h4>Welcome, {firstName} {lastName}</h4>
 
-  <Link to="/" onClick={logout} className="btn btn-danger btn-md w-15 mt-3 mx-5">Log Out</Link>
-</Container>
       
 
         </Navbar>

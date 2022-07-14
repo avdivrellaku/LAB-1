@@ -38,8 +38,8 @@ export const Login = () => {
         localStorage.setItem("firstName",jwt(responseFromServer).firstName);
         localStorage.setItem("lastName",jwt(responseFromServer).lastName);
         localStorage.setItem("username",jwt(responseFromServer).username);
-        localStorage.setItem("role",jwt(responseFromServer).role);
-        {window.location.href="/"}
+        localStorage.setItem("Role",jwt(responseFromServer).role);
+        {window.location.href="/Profile"}
 
       }
       else {

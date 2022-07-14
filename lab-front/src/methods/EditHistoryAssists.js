@@ -39,7 +39,6 @@ export const EditHistoryAssists = (props) => {
         e.preventDefault();
         const HistoryAssistsToEdit = {
             id:formData.id,
-            nr:formData.nr,
             fullName:formData.fullName,
             assists:formData.assists,
             gamesPlayed:formData.gamesPlayed,
@@ -80,9 +79,6 @@ export const EditHistoryAssists = (props) => {
 
 
             <Input name='id' value={formData.id} readOnly style={{ width: "100%" }} type="text"></Input>
-            <Label></Label>
-
-            <Input name='nr' value={formData.nr} style={{ width: "100%" }} type="number"  onChange={handleChange}></Input>
             <Label></Label>
             <Input name='fullName' value={formData.fullName} style={{ width: "100%" }} type="text"  onChange={handleChange}></Input>
             <Label></Label>

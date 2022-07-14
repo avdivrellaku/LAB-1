@@ -54,7 +54,7 @@ namespace LAB_1.Controllers
             {
                 return BadRequest("Player not found.");
             }
-            dbPlayer.Nr = playeru.Nr;
+         
             dbPlayer.FullName = playeru.FullName;
             dbPlayer.Points = playeru.Points;
             dbPlayer.GamesPlayed = playeru.GamesPlayed;

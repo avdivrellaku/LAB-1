@@ -98,8 +98,6 @@ namespace LAB_1.Models
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("imageName");
-
-                entity.Property(e => e.Nr).HasColumnName("nr");
             });
 
             modelBuilder.Entity<HistoryPoint>(entity =>
@@ -117,8 +115,6 @@ namespace LAB_1.Models
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("imageName");
-
-                entity.Property(e => e.Nr).HasColumnName("nr");
             });
 
             modelBuilder.Entity<News>(entity =>
@@ -182,6 +178,11 @@ namespace LAB_1.Models
                 entity.Property(e => e.Division)
                     .HasMaxLength(50)
                     .IsUnicode(false);
+
+                entity.Property(e => e.ImageName)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("imageName");
 
                 entity.Property(e => e.Name)
                     .HasMaxLength(50)

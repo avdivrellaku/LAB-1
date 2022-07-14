@@ -41,7 +41,6 @@ export const EditHistoryPoints = (props) => {
 
     const playerToEdit = {
     id: formData.id,
-    nr:formData.nr,
     fullName:formData.fullName,
     points:formData.points,
     gamesPlayed:formData.gamesPlayed,
@@ -82,9 +81,6 @@ export const EditHistoryPoints = (props) => {
     
 
     <Input name='id' value={formData.id} readOnly style={{width: "100%"}} placeholder='Id' type="text"></Input> 
-    <Label></Label>
-
-    <Input name='nr' value={formData.nr} style={{width: "100%"}} type="text"  placeholder='Nr' onChange={handleChange}></Input>
     <Label></Label>
     <Input name='fullName' value={formData.fullName} style={{width: "100%"}} type="text" placeholder='Full Name'  onChange={handleChange}></Input>
     <Label></Label>

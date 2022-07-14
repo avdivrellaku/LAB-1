@@ -53,7 +53,7 @@ namespace LAB_1.Controllers
             {
                 return BadRequest("History Assists not found.");
             }
-            dbHistoryAssists.Nr = historyassists.Nr;
+       
             dbHistoryAssists.FullName = historyassists.FullName;
             dbHistoryAssists.Assists = historyassists.Assists;
             dbHistoryAssists.GamesPlayed = historyassists.GamesPlayed;

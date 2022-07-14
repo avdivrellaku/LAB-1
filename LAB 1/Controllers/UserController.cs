@@ -60,7 +60,7 @@ namespace LAB_1.Controllers
                 new Claim("firstName",user.FirstName),
                 new Claim("lastName",user.LastName),
                 new Claim("username",user.Username),
-                new Claim("Role",user.Role)
+                new Claim("role",user.Role)
 
             };
 

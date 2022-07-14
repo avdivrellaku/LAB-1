@@ -21,7 +21,8 @@ export const AddTeam = () => {
       owner:FormData.owner,
       coach:FormData.coach,
       division:FormData.division,
-      conference:FormData.conference
+      conference:FormData.conference,
+      imageName:FormData.imageName,
     };
 
     const url = 'http://localhost:5164/api/Team';
@@ -69,6 +70,8 @@ export const AddTeam = () => {
        <Input name='division' style={{width: "100%"}} type="text" placeholder='Division' onChange={handleChange}></Input>
        <Label></Label>
        <Input name='conference' style={{width: "100%"}} type="text" placeholder='Conference' onChange={handleChange}></Input>
+       <Label></Label>
+       <Input name='imageName' style={{width: "100%"}} type="text" placeholder='Image Name' onChange={handleChange}></Input>
        <Label></Label>
     
       <Button onClick={handleSubmit} className='btn btn-primary  align-self-center' type="submit">

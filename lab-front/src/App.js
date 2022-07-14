@@ -28,6 +28,10 @@ import {ReadMore} from './methods/ReadMore';
 import {Login} from './methods/Login';
 import {Players} from './methods/Players';
 import {AddNews} from './methods/AddNews';
+import {Teams} from './methods/Teams';
+import {Profile} from './methods/Profile';
+import {Dashboard} from './methods/Dashboard';
+import {ArenasHome} from './methods/ArenasHome';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { HistoryAssists } from './methods/HistoryAssists';
@@ -47,7 +51,7 @@ function App() {
           
 
       
-        <Route  exact path="/" component={Home} />
+        <Route exact path="/" component={Home} />
           <Route  path="/playersHome" component={PlayersHome} />
           <Route  path="/teamHome" component={TeamHome} />
           <Route path="/addPlayer" component={AddPlayer} />
@@ -73,8 +77,10 @@ function App() {
           <Route path="/login" component={Login}/>
           <Route path="/Players" component={Players}/>
           <Route path="/AddNews" component={AddNews}/>
-
-          
+          <Route path="/Teams" component={Teams}/>
+          <Route path="/Profile" component={Profile}/>
+          <Route path="/Dashboard" component={Dashboard}/>
+          <Route path="/ArenasHome" component={ArenasHome}/>
       </Router>
 
     </div>
