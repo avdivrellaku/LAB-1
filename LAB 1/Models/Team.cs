@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace LAB_1.Models
 {
@@ -19,7 +20,9 @@ namespace LAB_1.Models
         public string? Conference { get; set; }
         public string? ImageName { get; set; }
 
+        [JsonIgnore]
         public virtual ICollection<Arena> Arenas { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Player> Players { get; set; }
     }
 }
